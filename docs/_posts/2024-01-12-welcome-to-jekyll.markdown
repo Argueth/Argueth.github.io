@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title:  "Nombre comercial del módulo"
 date:   2024-01-12 14:03:18 -0600
 categories: jekyll update
