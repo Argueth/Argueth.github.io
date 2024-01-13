@@ -22,10 +22,10 @@ title: Gestión de eventos
 email: pablogb2@hotmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Un módulo para modularlos a todos.
-baseurl: "/docs" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+baseurl: "/docs/" # the subpath of your site, e.g. /blog
+url: "Argueth.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+# twitter_username: jekyllrb
+github_username:  Argueth
 
 # Build settings
 theme: minima
