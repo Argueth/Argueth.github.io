@@ -1,28 +1,68 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="gestion_eventos.list">
-      <field name="name">gestion_eventos list</field>
-      <field name="model">gestion_eventos.gestion_eventos</field>
+
+    <record model="ir.ui.view" id="gestion_eventos.events_list">
+      <field name="name">events list</field>
+      <field name="model">gestion_eventos.event</field>
       <field name="arch" type="xml">
         <tree>
+          <field name="code"/>
           <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
+          <field name="type1"/>
+          <field name="type2"/>
+          <field name="type3"/>
+          <field name="start_date"/>
+          <field name="end_date"/>
         </tree>
       </field>
     </record>
--->
+
+    <record model="ir.ui.view" id="gestion_eventos.fases_list">
+      <field name="name">fases list</field>
+      <field name="model">gestion_eventos.fase</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="code"/>
+          <field name="name"/>
+          <field name="start_date"/>
+          <field name="end_date"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="gestion_eventos.materials_list">
+      <field name="name">materials list</field>
+      <field name="model">gestion_eventos.material</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="code"/>
+          <field name="name"/>
+          <field name="type"/>
+        </tree>
+      </field>
+    </record>
 
     <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="gestion_eventos.action_window">
-      <field name="name">gestion_eventos window</field>
-      <field name="res_model">gestion_eventos.gestion_eventos</field>
+
+    <record model="ir.actions.act_window" id="gestion_eventos.action_window_event">
+      <field name="name">Eventos</field>
+      <field name="res_model">gestion_eventos.event</field>
       <field name="view_mode">tree,form</field>
     </record>
--->
+
+    <record model="ir.actions.act_window" id="gestion_eventos.action_window_fase">
+      <field name="name">Fases</field>
+      <field name="res_model">gestion_eventos.fase</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="gestion_eventos.action_window_material">
+      <field name="name">Materials</field>
+      <field name="res_model">gestion_eventos.material</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
 
     <!-- server action to the one above -->
 <!--
@@ -41,18 +81,24 @@
 -->
 
     <!-- Top menu item -->
-<!--
-    <menuitem name="gestion_eventos" id="gestion_eventos.menu_root"/>
--->
+
+    <menuitem name="Gestión de eventos" id="gestion_eventos.menu_root"/>
+
     <!-- menu categories -->
+    <menuitem name="Listas" id="gestion_eventos.menu_1" parent="gestion_eventos.menu_root"/>
 <!--
-    <menuitem name="Menu 1" id="gestion_eventos.menu_1" parent="gestion_eventos.menu_root"/>
     <menuitem name="Menu 2" id="gestion_eventos.menu_2" parent="gestion_eventos.menu_root"/>
 -->
     <!-- actions -->
+    <menuitem name="Events" id="gestion_eventos.event_list" parent="gestion_eventos.menu_1"
+              action="gestion_eventos.action_window_event"/>
+
+    <menuitem name="Fases" id="gestion_eventos.fase_list" parent="gestion_eventos.menu_1"
+              action="gestion_eventos.action_window_fase"/>
+    
+    <menuitem name="Materials" id="gestion_eventos.material_list" parent="gestion_eventos.menu_1"
+              action="gestion_eventos.action_window_material"/>
 <!--
-    <menuitem name="List" id="gestion_eventos.menu_1_list" parent="gestion_eventos.menu_1"
-              action="gestion_eventos.action_window"/>
     <menuitem name="Server to list" id="gestion_eventos" parent="gestion_eventos.menu_2"
               action="gestion_eventos.action_server"/>
 -->

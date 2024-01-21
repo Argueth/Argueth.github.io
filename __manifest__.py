@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "gestion_eventos",
+    'name': "Gestión de eventos",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Un módulo para modularlos a todos.""",
 
     'description': """
-        Long description of module's purpose
+        Módulo para gestionar eventos de tipo audiovisual. Permite crear eventos, editarlos, añadir personal
+        y material al evento, añadir notas y temporalización orientativa.
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "Pablo Giner Barrios",
+    'website': "https://github.com/Argueth/gestion_eventos",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
@@ -22,9 +22,10 @@
     # any module necessary for this one to work correctly
     'depends': ['base'],
 
+    'application':True,
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
     ],

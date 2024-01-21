@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_gestion_eventos_gestion_eventos,gestion_eventos.gestion_eventos,model_gestion_eventos_gestion_eventos,base.group_user,1,1,1,1
+access_gestion_eventos_event,gestion_eventos.event,model_gestion_eventos_event,base.group_user,1,1,1,1
+access_gestion_eventos_fase,gestion_eventos.fase,model_gestion_eventos_fase,base.group_user,1,1,1,1
+access_gestion_eventos_material,gestion_eventos.material,model_gestion_eventos_material,base.group_user,1,1,1,1
