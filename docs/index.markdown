@@ -121,10 +121,6 @@ Esta pantalla es la que verían los responsables de cada departamento al pulsar 
 >
 ![](img/DESCARGAR%20ARCHIVO.drawio.png)
 
-# Diagrama E-R versión 1:
+# Diagrama E-R:
 >
 ![](img/ENTIDAD-RELACION.drawio.png)
-
-# Diagrama E-R versión 2:
->
-![](img/ENTIDAD-RELACION%202.drawio.png)
