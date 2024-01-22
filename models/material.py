@@ -11,11 +11,11 @@ class Fase(models.Model):
     name = fields.Char(string='Name', required=True)
     type = fields.Selection([('L','LIGHTS'), ('S','SOUND'),('M','MOUNT'),('EL','ELECTRICAL'),('G','GRIPS'),
                              ('GR','GENERAL RESOURCES')], required=True)
-
+    price = fields.Float(string='Precio')
     event_id = fields.Many2one('gestion_eventos.event')
 
     _sql_constraints = [
-        ('unique_code','unique(code)','Code must be unique.')
+        ('unique_code','unique(code)','Code and type must be unique.')
     ]
 
     

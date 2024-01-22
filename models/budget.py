@@ -9,10 +9,9 @@ class Budget(models.Model):
 
     code = fields.Integer(string='Código', required=True)
     name = fields.Char(string='Nombre', required=True)
+    total_price = fields.Float(string='Precio', compute='calcule_total_price', store=True)
     
     line_ids = fields.One2many('gestion_eventos.line', 'code')
-
-    total_price = fields.Float(string='Precio', compute='calcule_total_price', store=True)
 
     _sql_constraints = [
         ('unique_code','unique(code)','Code must be unique.'),

@@ -9,18 +9,20 @@ class Event(models.Model):
 
     code = fields.Integer(required=True)
     name = fields.Char(string='Event', required=True)
-    type1 = fields.Char()
-    type2 = fields.Char()
-    type3 = fields.Char()
     start_date = fields.Date()
     end_date = fields.Date()
 
     fases_id = fields.One2many('gestion_eventos.fase','code')
     materials_id = fields.One2many('gestion_eventos.material', 'code')
-    type_id = fields.Many2one('gestion_eventos.type')
+    type_id = fields.Selection(selection='_get_tipos', string='Tipo de evento', store=True)
 
     _sql_constraints = [
         ('unique_code','unique(code)','Code must be unique.')
     ]
+
+    @api.model
+    def _get_tipos(self):
+        type_records = self.env['gestion_eventos.type'].search([])
+        return [(type.code, type.name) for type in type_records]
 
     

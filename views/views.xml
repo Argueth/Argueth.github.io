@@ -9,9 +9,7 @@
         <tree>
           <field name="code"/>
           <field name="name"/>
-          <field name="type1"/>
-          <field name="type2"/>
-          <field name="type3"/>
+          <field name="type_id"/>
           <field name="start_date"/>
           <field name="end_date"/>
         </tree>
@@ -39,6 +37,7 @@
           <field name="code"/>
           <field name="name"/>
           <field name="type"/>
+          <field name="price"/>
         </tree>
       </field>
     </record>
@@ -50,6 +49,7 @@
         <tree>
           <field name="code"/>
           <field name="name"/>
+          <field name="description"/>
         </tree>
       </field>
     </record>
@@ -72,6 +72,7 @@
       <field name="arch" type="xml">
         <tree>
           <field name="code"/>
+          <field name="budget_id"/>
           <field name="concept"/>
           <field name="quantity"/>
           <field name="unity_price"/>
