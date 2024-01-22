@@ -2,3 +2,5 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_gestion_eventos_event,gestion_eventos.event,model_gestion_eventos_event,base.group_user,1,1,1,1
 access_gestion_eventos_fase,gestion_eventos.fase,model_gestion_eventos_fase,base.group_user,1,1,1,1
 access_gestion_eventos_material,gestion_eventos.material,model_gestion_eventos_material,base.group_user,1,1,1,1
+access_gestion_eventos_type,gestion_eventos.type,model_gestion_eventos_type,base.group_user,1,1,1,1
+access_gestion_eventos_budget,gestion_eventos.budget,model_gestion_eventos_budget,base.group_user,1,1,1,1

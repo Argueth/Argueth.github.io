@@ -16,8 +16,8 @@ class Event(models.Model):
     end_date = fields.Date()
 
     fases_id = fields.One2many('gestion_eventos.fase','code')
-
     materials_id = fields.One2many('gestion_eventos.material', 'code')
+    type_id = fields.Many2one('gestion_eventos.type')
 
     _sql_constraints = [
         ('unique_code','unique(code)','Code must be unique.')

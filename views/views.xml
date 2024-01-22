@@ -43,6 +43,17 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="gestion_eventos.types_list">
+      <field name="name">types list</field>
+      <field name="model">gestion_eventos.type</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="code"/>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="gestion_eventos.action_window_event">
@@ -60,6 +71,18 @@
     <record model="ir.actions.act_window" id="gestion_eventos.action_window_material">
       <field name="name">Materials</field>
       <field name="res_model">gestion_eventos.material</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="gestion_eventos.action_window_type">
+      <field name="name">Types</field>
+      <field name="res_model">gestion_eventos.type</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="gestion_eventos.action_window_budget">
+      <field name="name">Budgets</field>
+      <field name="res_model">gestion_eventos.budget</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -98,6 +121,12 @@
     
     <menuitem name="Materials" id="gestion_eventos.material_list" parent="gestion_eventos.menu_1"
               action="gestion_eventos.action_window_material"/>
+              
+    <menuitem name="Types" id="gestion_eventos.type_list" parent="gestion_eventos.menu_1"
+              action="gestion_eventos.action_window_type"/>
+
+    <menuitem name="Budgets" id="gestion_eventos.budget_list" parent="gestion_eventos.menu_1"
+              action="gestion_eventos.action_window_budget"/>
 <!--
     <menuitem name="Server to list" id="gestion_eventos" parent="gestion_eventos.menu_2"
               action="gestion_eventos.action_server"/>
