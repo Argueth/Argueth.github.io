@@ -37,7 +37,8 @@
           <field name="code"/>
           <field name="name"/>
           <field name="type"/>
-          <field name="price"/>
+          <field name="cost_price"/>
+          <field name="pvp"/>
         </tree>
       </field>
     </record>
@@ -73,10 +74,8 @@
         <tree>
           <field name="code"/>
           <field name="budget_id"/>
-          <field name="concept"/>
+          <field name="concept_id"/>
           <field name="quantity"/>
-          <field name="unity_price"/>
-          <field name="price"/>
         </tree>
       </field>
     </record>

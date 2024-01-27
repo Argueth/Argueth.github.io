@@ -9,18 +9,20 @@ class Budget(models.Model):
 
     code = fields.Integer(string='Código', required=True)
     name = fields.Char(string='Nombre', required=True)
-    total_price = fields.Float(string='Precio', compute='calcule_total_price', store=True)
     
     line_ids = fields.One2many('gestion_eventos.line', 'code')
+    
+    total_price = fields.Float(string='Precio', compute='compute_total_price', store=True)
 
+    events_ids = fields.Many2many('gestion_eventos.event', string='Eventos')
+    types_ids = fields.Many2many('gestion_eventos.type', string='Tipos')
+    
     _sql_constraints = [
         ('unique_code','unique(code)','Code must be unique.'),
         ('unique_name','unique(name)','Name must be unique.')
     ]
 
-    @api.depends('line_ids')
-    def calcule_total_price(self):
+    @api.depends('line_ids.price')
+    def compute_total_price(self):
         for r in self:
-            r.total_price = 0
-            for line in r.line_ids:
-                r.total_price += line.price
+            r.total_price = sum(r.line_ids.mapped('price'))

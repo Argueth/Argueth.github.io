@@ -1,0 +1,193 @@
+<odoo>
+    <data noupdate="1">
+        <record model="gestion_eventos.material" id="gestion_eventos.montaje">
+            <field name="code">1</field>
+            <field name="name">Montaje</field>
+            <field name="type">M</field>
+            <field name="cost_price">200</field>
+            <field name="pvp">300</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.diseño_iluminacion">
+            <field name="code">2</field>
+            <field name="name">Diseño Iuminación</field>
+            <field name="type">L</field>
+            <field name="cost_price">350</field>
+            <field name="pvp">500</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.diseño_sonido">
+            <field name="code">3</field>
+            <field name="name">Diseño Sonido</field>
+            <field name="type">S</field>
+            <field name="cost_price">350</field>
+            <field name="pvp">500</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.diseño_completo">
+            <field name="code">4</field>
+            <field name="name">Diseño Completo</field>
+            <field name="type">O</field>
+            <field name="cost_price">700</field>
+            <field name="pvp">900</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.funcion_iluminacion">
+            <field name="code">5</field>
+            <field name="name">Función Iuminción</field>
+            <field name="type">L</field>
+            <field name="cost_price">200</field>
+            <field name="pvp">250</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.funcion_sonido">
+            <field name="code">6</field>
+            <field name="name">Función Sonido</field>
+            <field name="type">S</field>
+            <field name="cost_price">200</field>
+            <field name="pvp">250</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.funcion_completa">
+            <field name="code">7</field>
+            <field name="name">Función Completa</field>
+            <field name="type">O</field>
+            <field name="cost_price">400</field>
+            <field name="pvp">600</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.par_led_3">
+            <field name="code">8</field>
+            <field name="name">Par Led 3cn</field>
+            <field name="type">L</field>
+            <field name="cost_price">10</field>
+            <field name="pvp">15</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.par_led_6">
+            <field name="code">9</field>
+            <field name="name">Par Led 6cn</field>
+            <field name="type">L</field>
+            <field name="cost_price">12</field>
+            <field name="pvp">20</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.pc_led_16">
+            <field name="code">10</field>
+            <field name="name">PC Led 16cn</field>
+            <field name="type">L</field>
+            <field name="cost_price">15</field>
+            <field name="pvp">25</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.pc_2k">
+            <field name="code">11</field>
+            <field name="name">PC 2kw</field>
+            <field name="type">L</field>
+            <field name="cost_price">10</field>
+            <field name="pvp">15</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.pc_1k">
+            <field name="code">12</field>
+            <field name="name">PC 1kw</field>
+            <field name="type">L</field>
+            <field name="cost_price">8</field>
+            <field name="pvp">12</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.micro_boton_senheisser">
+            <field name="code">13</field>
+            <field name="name">Micrófono de botón Senheisser</field>
+            <field name="type">S</field>
+            <field name="cost_price">12</field>
+            <field name="pvp">18</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.micro_canon_senheisser">
+            <field name="code">14</field>
+            <field name="name">Micrófono de cañon Senheisser</field>
+            <field name="type">S</field>
+            <field name="cost_price">15</field>
+            <field name="pvp">20</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.pala_frecuencias">
+            <field name="code">15</field>
+            <field name="name">Pala de frecuencias</field>
+            <field name="type">S</field>
+            <field name="cost_price">20</field>
+            <field name="pvp">30</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.pa">
+            <field name="code">16</field>
+            <field name="name">P.A.</field>
+            <field name="type">S</field>
+            <field name="cost_price">50</field>
+            <field name="pvp">70</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.frontfill">
+            <field name="code">17</field>
+            <field name="name">Frontfill</field>
+            <field name="type">S</field>
+            <field name="cost_price">45</field>
+            <field name="pvp">65</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.subwoofer">
+            <field name="code">18</field>
+            <field name="name">Subwoofer</field>
+            <field name="type">S</field>
+            <field name="cost_price">60</field>
+            <field name="pvp">75</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.mesa_iluminacion">
+            <field name="code">19</field>
+            <field name="name">Mesa de Iluminación</field>
+            <field name="type">L</field>
+            <field name="cost_price">80</field>
+            <field name="pvp">100</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.mesa_sonido">
+            <field name="code">20</field>
+            <field name="name">Mesa de Iluminación</field>
+            <field name="type">S</field>
+            <field name="cost_price">80</field>
+            <field name="pvp">100</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.tarima_1x2">
+            <field name="code">21</field>
+            <field name="name">Tarima 1 x 2 metros</field>
+            <field name="type">M</field>
+            <field name="cost_price">10</field>
+            <field name="pvp">15</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.trust_esquina">
+            <field name="code">22</field>
+            <field name="name">Trust de esquina</field>
+            <field name="type">M</field>
+            <field name="cost_price">8</field>
+            <field name="pvp">12</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.trust_1m">
+            <field name="code">23</field>
+            <field name="name">Trust 1 metro</field>
+            <field name="type">M</field>
+            <field name="cost_price">5</field>
+            <field name="pvp">10</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.trust_2m">
+            <field name="code">24</field>
+            <field name="name">Trust 2 metros</field>
+            <field name="type">M</field>
+            <field name="cost_price">10</field>
+            <field name="pvp">14</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.trust_3m">
+            <field name="code">25</field>
+            <field name="name">Trust 3 metros</field>
+            <field name="type">M</field>
+            <field name="cost_price">12</field>
+            <field name="pvp">14</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.soporte_t_focos">
+            <field name="code">26</field>
+            <field name="name">Soporte T para focos</field>
+            <field name="type">M</field>
+            <field name="cost_price">12</field>
+            <field name="pvp">15</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.trust_torre">
+            <field name="code">27</field>
+            <field name="name">Torre elevadora</field>
+            <field name="type">M</field>
+            <field name="cost_price">40</field>
+            <field name="pvp">50</field>
+        </record>
+    </data>
+</odoo>

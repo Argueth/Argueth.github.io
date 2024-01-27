@@ -12,17 +12,13 @@ class Event(models.Model):
     start_date = fields.Date()
     end_date = fields.Date()
 
+    type_id = fields.Many2one('gestion_eventos.type',string='Tipo de evento')
     fases_id = fields.One2many('gestion_eventos.fase','code')
-    materials_id = fields.One2many('gestion_eventos.material', 'code')
-    type_id = fields.Selection(selection='_get_tipos', string='Tipo de evento', store=True)
+    budget_ids = fields.Many2many('gestion_eventos.budget', string='Presupuestos')
 
     _sql_constraints = [
         ('unique_code','unique(code)','Code must be unique.')
     ]
 
-    @api.model
-    def _get_tipos(self):
-        type_records = self.env['gestion_eventos.type'].search([])
-        return [(type.code, type.name) for type in type_records]
 
     

@@ -8,33 +8,26 @@ class Line(models.Model):
     _description = 'Line'
     _rec_name = 'code'
 
-    code = fields.Integer(string='Numero de línea', required=True)
-    concept = fields.Selection(selection='_get_materials', string='Concepto', required=True)
-    quantity = fields.Integer(string='Cantidad', default=0, required=True)
-    unity_price = fields.Float(string='Precio Unitario', compute='_compute_unity_price', required=True)
-    price = fields.Float(string='Precio', compute='_calcule_total_price', required=True)
+    code = fields.Integer(string='Line number', required=True)
+    concept_id = fields.Many2one('gestion_eventos.material', required=True)
+    quantity = fields.Integer(string='Quantity', default=0, required=True)
+    init_price = fields.Float(string='Precio Inicial', related='concept_id.pvp')
+    price = fields.Float(string='Precio', compute='_calculate_total_price')
 
     budget_id = fields.Many2one('gestion_eventos.budget', string='Presupuesto')
 
     _sql_constraints = [
-        ('unique_identity','unique(code, budget_id)','Line number must be unique.')
+        ('unique_identity','unique(code,budget_id)','Line number must be unique.')
     ]
-
-    @api.model
-    def _get_materials(self):
-        material_records = self.env['gestion_eventos.material'].search([])
-        return [(str(material.code), material.name) for material in material_records]
     
-    @api.depends('concept')
-    def _compute_unity_price(self):
-        for record in self:
-            if self.concept:
-                record.unity_price = self.concept.price
-            else:
-                record.unity_price = 0.0
-
-
-    @api.depends('quantity', 'unity_price')
-    def _calcule_total_price(self):
+    @api.depends('quantity', 'init_price')
+    def _calculate_total_price(self):
         for r in self:
-            r.price = r.quantity * r.unity_price
+            r.price = r.quantity * r.init_price
+"""
+    @api.depends('concept_id')
+    def _compute_init_price(self):
+        for record in self:
+            record.init_price = record.concept_id.pvp if record.concept_id else 0.0
+"""
+
