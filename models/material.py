@@ -7,7 +7,7 @@ class Material(models.Model):
     _name = 'gestion_eventos.material'
     _description = 'Fase'
 
-    code = fields.Integer(required=True)
+    code = fields.Integer(string='Código')
     name = fields.Char(string='Name', required=True)
     type = fields.Selection([('L','LIGHTS'), ('S','SOUND'),('M','MOUNT'),('EL','ELECTRICAL'),('G','GRIPS'),
                              ('GR','GENERAL RESOURCES'),('O', 'OTHERS')], required=True)
@@ -18,6 +18,17 @@ class Material(models.Model):
         ('unique_code','unique(code)','Code and type must be unique.')
     ]
 
-    
+    def _compute_code(self):
+        existing_codes = set(self.env['gestion_eventos.material'].mapped('code'))
+        used_codes = set(existing_codes)
+        
+        # Busca códigos liberados (gaps en la secuencia)
+        for i in range(1, max(existing_codes, default=0) + 2):
+            if i not in existing_codes:
+                self.code = i
+                return
+
+        # Si no hay códigos liberados, usa el siguiente número después del máximo existente
+        self.code = max(used_codes, default=0) + 1
 
             

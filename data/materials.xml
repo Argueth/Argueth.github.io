@@ -189,5 +189,26 @@
             <field name="cost_price">40</field>
             <field name="pvp">50</field>
         </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.recorte_1k">
+            <field name="code">28</field>
+            <field name="name">Recorte 1kw</field>
+            <field name="type">L</field>
+            <field name="cost_price">20</field>
+            <field name="pvp">30</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.recorte_2k">
+            <field name="code">29</field>
+            <field name="name">Recorte 2kw</field>
+            <field name="type">L</field>
+            <field name="cost_price">25</field>
+            <field name="pvp">35</field>
+        </record>
+        <record model="gestion_eventos.material" id="gestion_eventos.maquina_humo">
+            <field name="code">30</field>
+            <field name="name">Máquina de humo</field>
+            <field name="type">O</field>
+            <field name="cost_price">30</field>
+            <field name="pvp">40</field>
+        </record>
     </data>
 </odoo>

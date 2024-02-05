@@ -10,11 +10,11 @@ class Line(models.Model):
 
     code = fields.Integer(string='Line number', required=True)
     concept_id = fields.Many2one('gestion_eventos.material', required=True)
-    quantity = fields.Integer(string='Quantity', default=0, required=True)
     init_price = fields.Float(string='Precio Inicial', related='concept_id.pvp')
+    quantity = fields.Integer(string='Quantity', default=0, required=True)
     price = fields.Float(string='Precio', compute='_calculate_total_price')
 
-    budget_id = fields.Many2one('gestion_eventos.budget', string='Presupuesto')
+    budget_ids = fields.Many2many('gestion_eventos.budget', string='Presupuesto')
 
     _sql_constraints = [
         ('unique_identity','unique(code,budget_id)','Line number must be unique.')

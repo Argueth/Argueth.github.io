@@ -10,7 +10,7 @@ class Budget(models.Model):
     code = fields.Integer(string='Código', required=True)
     name = fields.Char(string='Nombre', required=True)
     
-    line_ids = fields.One2many('gestion_eventos.line', 'code')
+    line_ids = fields.Many2many('gestion_eventos.line', string='Líneas')
     
     total_price = fields.Float(string='Precio', compute='compute_total_price', store=True)
 

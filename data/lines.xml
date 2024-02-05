@@ -1,0 +1,84 @@
+<odoo>
+    <data noupdate="1">
+        <record model="gestion_eventos.line" id="gestion_eventos.line_montaje">
+            <field name="code">1</field>
+            <field name="concept_id" ref="gestion_eventos.montaje"/>
+            <field name="quantity">1</field>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.line_diseño_iluminacio">
+            <field name="code">2</field>
+            <field name="concept_id" ref="gestion_eventos.diseño_iluminacion"/>
+            <field name="quantity">1</field>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.line_diseño_sonido">
+            <field name="code">3</field>
+            <field name="concept_id" ref="gestion_eventos.diseño_sonido"/>
+            <field name="quantity">1</field>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.line_diseño_completo">
+            <field name="code">4</field>
+            <field name="concept_id" ref="gestion_eventos.diseño_completo"/>
+            <field name="quantity">1</field>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.line_funcion_iluminacio">
+            <field name="code">5</field>
+            <field name="concept_id" ref="gestion_eventos.funcion_iluminacion"/>
+            <field name="quantity">1</field>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.line_funcion_sonido">
+            <field name="code">6</field>
+            <field name="concept_id" ref="gestion_eventos.funcion_sonido"/>
+            <field name="quantity">1</field>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.line_funcion_completa">
+            <field name="code">7</field>
+            <field name="concept_id" ref="gestion_eventos.funcion_completa"/>
+            <field name="quantity">1</field>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.frontal_cercano">
+            <field name="code">8</field>
+            <field name="concept_id" ref="gestion_eventos.pc_1k"/>
+            <field name="quantity">6</field>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.frontal_lejano">
+            <field name="code">8</field>
+            <field name="concept_id" ref="gestion_eventos.recorte_1k"/>
+            <field name="quantity">6</field>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.contra_led">
+            <field name="code">9</field>
+            <field name="concept_id" ref="gestion_eventos.par_led_6"/>
+            <field name="quantity">8</field>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.contra_led_grande">
+            <field name="code">10</field>
+            <field name="concept_id" ref="gestion_eventos.par_led_6"/>
+            <field name="quantity">12</field>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.contra_pc">
+            <field name="code">11</field>
+            <field name="concept_id" ref="gestion_eventos.pc_1k"/>
+            <field name="quantity">8</field>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.contra_pc_grande">
+            <field name="code">12</field>
+            <field name="concept_id" ref="gestion_eventos.pc_1k"/>
+            <field name="quantity">12</field>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.humo_standard">
+            <field name="code">13</field>
+            <field name="concept_id" ref="gestion_eventos.maquina_humo"/>
+            <field name="quantity">2</field>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.humo_grande">
+            <field name="code">14</field>
+            <field name="concept_id" ref="gestion_eventos.maquina_humo"/>
+            <field name="quantity">4</field>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.micro_presentador">
+            <field name="code">15</field>
+            <field name="concept_id" ref="gestion_eventos.micro_boton_senheisser"/>
+            <field name="quantity">1</field>
+        </record>
+    </data>
+</odoo>

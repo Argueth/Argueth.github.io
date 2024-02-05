@@ -73,7 +73,6 @@
       <field name="arch" type="xml">
         <tree>
           <field name="code"/>
-          <field name="budget_id"/>
           <field name="concept_id"/>
           <field name="quantity"/>
         </tree>
