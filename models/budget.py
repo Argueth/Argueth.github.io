@@ -15,7 +15,6 @@ class Budget(models.Model):
     total_price = fields.Float(string='Precio', compute='compute_total_price', store=True)
 
     events_ids = fields.Many2many('gestion_eventos.event', string='Eventos')
-    types_ids = fields.Many2many('gestion_eventos.type', string='Tipos')
     
     _sql_constraints = [
         ('unique_code','unique(code)','Code must be unique.'),

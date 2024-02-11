@@ -29,7 +29,7 @@
         'views/views.xml',
         'views/templates.xml',
         'data/materials.xml',
-        'data/lines.xml',
+        #'data/lines.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
