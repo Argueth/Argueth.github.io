@@ -3,5 +3,7 @@ access_gestion_eventos_event,gestion_eventos.event,model_gestion_eventos_event,b
 access_gestion_eventos_fase,gestion_eventos.fase,model_gestion_eventos_fase,base.group_user,1,1,1,1
 access_gestion_eventos_material,gestion_eventos.material,model_gestion_eventos_material,base.group_user,1,1,1,1
 access_gestion_eventos_type,gestion_eventos.type,model_gestion_eventos_type,base.group_user,1,1,1,1
-access_gestion_eventos_budget,gestion_eventos.budget,model_gestion_eventos_budget,base.group_user,1,1,1,1
+access_gestion_eventos_budget_abstract,gestion_eventos.budget_abstract,model_gestion_eventos_budget_abstract,base.group_user,1,1,1,1
+access_gestion_eventos_budget_template,gestion_eventos.budget_template,model_gestion_eventos_budget_template,base.group_user,1,1,1,1
+access_gestion_eventos_budget_event,gestion_eventos.budget_event,model_gestion_eventos_budget_event,base.group_user,1,1,1,1
 access_gestion_eventos_line,gestion_eventos.line,model_gestion_eventos_line,base.group_user,1,1,1,1
