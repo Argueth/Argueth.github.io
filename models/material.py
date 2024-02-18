@@ -12,7 +12,7 @@ class Material(models.Model):
     type = fields.Selection([('L','LIGHTS'), ('S','SOUND'),('M','MOUNT'),('EL','ELECTRICAL'),('G','GRIPS'),
                              ('GR','GENERAL RESOURCES'),('O', 'OTHERS')], required=True)
     
-    provider_id = fields.Many2one('res.partent', string='Proveedor', domain=[('supplier_rank', '!=', 0)])
+    provider_id = fields.Many2one('res.partner', string='Proveedor', domain=[('supplier_rank', '!=', 0)])
     
     cost_price = fields.Float(string='Precio')
     pvp = fields.Float(string='PVP')
