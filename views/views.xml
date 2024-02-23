@@ -197,6 +197,32 @@
       </field>
     </record>
 
+    <!-- Vista tree para las light employees -->
+    <!--
+    <record model="ir.ui.view" id="gestion_eventos.light_employees">
+      <field name="name">Light Employees</field>
+      <field name="model">gestion_eventos.light_employees_rel</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="employee"/>
+        </tree>
+      </field>
+    </record>
+    -->
+    <!-- Vista form para las light employees -->
+    <!--
+    <record model="ir.ui.view" id="gestion_eventos.light_employees">
+      <field name="name">Light Employees</field>
+      <field name="model">gestion_eventos.light_employees_rel</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="employee"/>
+          </group>
+        </form>
+      </field>
+    </record>
+    -->
     <!-- actions opening views on models -->
 
     <!-- Action window for events -->
@@ -241,13 +267,21 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- Action window for lines-->
+    <!-- Action window for lines -->
     <record model="ir.actions.act_window" id="gestion_eventos.action_window_line">
       <field name="name">Lines</field>
       <field name="res_model">gestion_eventos.line</field>
       <field name="view_mode">tree,form</field>
     </record>
 
+    <!-- Action window for light employees -->
+    <!--
+    <record model="ir.actions.act_window" id="gestion_eventos.action_window_light_employees">
+      <field name="name">Light Employees</field>
+      <field name="res_model">gestion_eventos.light_employees_rel</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
 
     <!-- server action to the one above -->
 <!--
