@@ -20,23 +20,13 @@ class EmployeesRel(models.Model):
     @api.depends('employee_ids', 'event_ids')
     def _compute_conflicting_event_info(self):
         for record in self:
-            conflicting_event_info = ""
-            if record.employee_ids and record.event_ids:
-                # Obtenemos las fechas del evento actual
-                current_event_start_date = record.event_ids.start_date
-                current_event_end_date = record.event_ids.end_date
-
-                # Buscamos otros eventos donde este empleado esté asignado en las mismas fechas
-                conflicting_events = self.env['gestion_eventos.event'].search([
-                    ('id', '!=', record.event_ids.id),  # Excluir el propio evento actual
-                    ('start_date', '<=', current_event_end_date),
-                    ('end_date', '>=', current_event_start_date),
-                    ('employee_light_ids', 'in', record.employee_ids.ids),  # Ajusta esto según tu modelo
-                ])
-
-                if conflicting_events:
-                    for event in conflicting_events:
-                        duration = min(event.end_date, current_event_end_date) - max(event.start_date, current_event_start_date)
-                        conflicting_event_info += f"\nEvento: {event.name}, Duración del conflicto: {duration.days} días"
-
-            record.conflicting_event_info = conflicting_event_info
+            conflicting_events = self.env['gestion_eventos.event'].search([
+                ('id', '!=', record.event_ids.id),  # Evito el evento actual
+                ('start_date', '<=', record.event_ids.end_date),  # El evento empieza antes de que termine el otro
+                ('end_date', '>=', record.event_ids.start_date),  # El evento termina depués de que empiece el otro
+            ])
+            if conflicting_events:
+                conflicting_names = ', '.join(conflicting_events.mapped('name'))
+                record.conflicting_event_info = conflicting_names
+            else:
+                record.conflicting_event_info = 'No hay eventos en conflicto.'
