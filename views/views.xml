@@ -4,7 +4,7 @@
 
     <!-- Vista  tree de events-->
     <record model="ir.ui.view" id="gestion_eventos.events_list">
-      <field name="name">events list</field>
+      <field name="name">events_list</field>
       <field name="model">gestion_eventos.event</field>
       <field name="arch" type="xml">
         <tree>
@@ -19,7 +19,7 @@
 
     <!-- Vista  calendar de events-->
     <record model="ir.ui.view" id="gestion_eventos.events_calendar">
-      <field name="name">events list</field>
+      <field name="name">events_calendar</field>
       <field name="model">gestion_eventos.event</field>
       <field name="arch" type="xml">
         <calendar string="Events" date_start="start_date" date_stop="end_date" mode="month" event_open_popup="False">
@@ -34,7 +34,7 @@
 
     <!-- Vista form del evento -->
     <record model="ir.ui.view" id="gestion_eventos.events_form">
-      <field name="name">events form</field>
+      <field name="name">events_form</field>
       <field name="model">gestion_eventos.event</field>
       <field name="arch" type="xml">
         <form>
@@ -68,7 +68,13 @@
                     <field name="quantity"/>
                   </tree>
                 </field>
-                <field name="employee_light_ids"/>
+                <field name="employee_light_ids_custom"/>
+                <field name="employee_light_ids">
+                  <tree>
+                      <field name="employee_name"/>
+                      <field name="department_id"/>
+                  </tree>
+                </field>
               </group>
             </page>
             <page string="Sonido">
@@ -79,6 +85,7 @@
                     <field name="quantity"/>
                   </tree>
                 </field>
+                <field name="employee_sound_ids_custom"/>
                 <field name="employee_sound_ids"/>
               </group>
             </page>
@@ -90,6 +97,7 @@
                     <field name="quantity"/>
                   </tree>
                 </field>
+                <field name="employee_mount_ids_custom"/>
                 <field name="employee_mount_ids"/>
               </group>
             </page>
@@ -98,9 +106,22 @@
       </field>
     </record>
 
+    <!-- Vista tree for employees_rel -->
+    <record model="ir.ui.view" id="gestion_eventos.employees_rel_list">
+      <field name="name">employee_rel_list</field>
+      <field name="model">gestion_eventos.employees_rel</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="employee_name"/>
+          <field name="department_id"/>
+          <field name="event_ids" string="Event"/>
+        </tree>
+      </field>
+    </record>
+
     <!-- Vista tree for fases -->
     <record model="ir.ui.view" id="gestion_eventos.fases_list">
-      <field name="name">fases list</field>
+      <field name="name">fases_list</field>
       <field name="model">gestion_eventos.fase</field>
       <field name="arch" type="xml">
         <tree>
@@ -114,7 +135,7 @@
 
     <!-- Vista tree para materiales -->
     <record model="ir.ui.view" id="gestion_eventos.materials_list">
-      <field name="name">materials list</field>
+      <field name="name">materials_list</field>
       <field name="model">gestion_eventos.material</field>
       <field name="arch" type="xml">
         <tree>
@@ -129,7 +150,7 @@
 
     <!-- Vista tree para types -->
     <record model="ir.ui.view" id="gestion_eventos.types_list">
-      <field name="name">types list</field>
+      <field name="name">types_list</field>
       <field name="model">gestion_eventos.type</field>
       <field name="arch" type="xml">
         <tree>
@@ -142,7 +163,7 @@
 
     <!-- Vista tree para plantillas de presupuesto -->
     <record model="ir.ui.view" id="gestion_eventos.budgets_template_list">
-      <field name="name">budgets list</field>
+      <field name="name">budgets_template_list</field>
       <field name="model">gestion_eventos.budget_template</field>
       <field name="arch" type="xml">
         <tree>
@@ -155,7 +176,7 @@
 
     <!-- Vista tree para los presupuestos finales -->
     <record model="ir.ui.view" id="gestion_eventos.budgets_list">
-      <field name="name">budgets list</field>
+      <field name="name">budgets_list</field>
       <field name="model">gestion_eventos.budget_event</field>
       <field name="arch" type="xml">
         <tree>
@@ -168,7 +189,7 @@
 
     <!-- Vista budget form -->
     <record model="ir.ui.view" id="gestion_eventos.budget_form">
-      <field name="name">lines Form</field>
+      <field name="name">budget_Form</field>
       <field name="model">gestion_eventos.budget_event</field>
       <field name="arch" type="xml">
         <form>
@@ -186,7 +207,7 @@
 
     <!-- Vista tree para las lineas -->
     <record model="ir.ui.view" id="gestion_eventos.lines_list">
-      <field name="name">lines list</field>
+      <field name="name">lines_list</field>
       <field name="model">gestion_eventos.line</field>
       <field name="arch" type="xml">
         <tree>
@@ -197,32 +218,6 @@
       </field>
     </record>
 
-    <!-- Vista tree para las light employees -->
-    <!--
-    <record model="ir.ui.view" id="gestion_eventos.light_employees">
-      <field name="name">Light Employees</field>
-      <field name="model">gestion_eventos.light_employees_rel</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="employee"/>
-        </tree>
-      </field>
-    </record>
-    -->
-    <!-- Vista form para las light employees -->
-    <!--
-    <record model="ir.ui.view" id="gestion_eventos.light_employees">
-      <field name="name">Light Employees</field>
-      <field name="model">gestion_eventos.light_employees_rel</field>
-      <field name="arch" type="xml">
-        <form>
-          <group>
-            <field name="employee"/>
-          </group>
-        </form>
-      </field>
-    </record>
-    -->
     <!-- actions opening views on models -->
 
     <!-- Action window for events -->
@@ -274,14 +269,12 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- Action window for light employees -->
-    <!--
-    <record model="ir.actions.act_window" id="gestion_eventos.action_window_light_employees">
-      <field name="name">Light Employees</field>
-      <field name="res_model">gestion_eventos.light_employees_rel</field>
+    <!-- Action window for employees_rel -->
+    <record model="ir.actions.act_window" id="gestion_eventos.action_window_employees_rel">
+      <field name="name">Employees_rel</field>
+      <field name="res_model">gestion_eventos.employees_rel</field>
       <field name="view_mode">tree,form</field>
     </record>
-    -->
 
     <!-- server action to the one above -->
 <!--

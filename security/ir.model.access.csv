@@ -8,3 +8,4 @@ access_gestion_eventos_budget_template,gestion_eventos.budget_template,model_ges
 access_gestion_eventos_budget_event,gestion_eventos.budget_event,model_gestion_eventos_budget_event,base.group_user,1,1,1,1
 access_gestion_eventos_line,gestion_eventos.line,model_gestion_eventos_line,base.group_user,1,1,1,1
 access_gestion_eventos_hr_employee_custom,gestion_eventos.hr_employee_custom,model_gestion_eventos_hr_employee_custom,base.group_user,1,1,1,1
+access_gestion_eventos_employees_rel,gestion_eventos.employees_rel,model_gestion_eventos_employees_rel,base.group_user,1,1,1,1
