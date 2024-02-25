@@ -72,7 +72,8 @@
                 <field name="employee_light_ids">
                   <tree>
                       <field name="employee_name"/>
-                      <field name="department_id"/>
+                      <field name="department_id" attrs="{'style': 'background-color: red;'}"/>
+                      <field name="conflicting_event_info"/>
                   </tree>
                 </field>
               </group>
@@ -86,7 +87,13 @@
                   </tree>
                 </field>
                 <field name="employee_sound_ids_custom"/>
-                <field name="employee_sound_ids"/>
+                <field name="employee_sound_ids">
+                  <tree>
+                      <field name="employee_name"/>
+                      <field name="department_id" attrs="{'style': 'background-color: red;'}"/>
+                      <field name="conflicting_event_info"/>
+                  </tree>
+                </field>
               </group>
             </page>
             <page string="Montaje">
@@ -98,7 +105,13 @@
                   </tree>
                 </field>
                 <field name="employee_mount_ids_custom"/>
-                <field name="employee_mount_ids"/>
+                <field name="employee_mount_ids">
+                  <tree>
+                      <field name="employee_name"/>
+                      <field name="department_id" attrs="{'style': 'background-color: red;'}"/>
+                      <field name="conflicting_event_info"/>
+                  </tree>
+                </field>
               </group>
             </page>
           </notebook>
