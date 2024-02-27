@@ -68,12 +68,12 @@
                     <field name="quantity"/>
                   </tree>
                 </field>
-                <field name="employee_light_ids_custom"/>
                 <field name="employee_light_ids">
                   <tree>
                       <field name="employee_name"/>
                       <field name="department_id" attrs="{'style': 'background-color: red;'}"/>
-                      <field name="conflicting_event_info"/>
+                      <field name="conflicting_event_info"
+                              decoration-danger="conflicting_event_info != 'No hay eventos en conflicto.'"/>
                   </tree>
                 </field>
               </group>
@@ -86,7 +86,6 @@
                     <field name="quantity"/>
                   </tree>
                 </field>
-                <field name="employee_sound_ids_custom"/>
                 <field name="employee_sound_ids">
                   <tree>
                       <field name="employee_name"/>
@@ -104,7 +103,6 @@
                     <field name="quantity"/>
                   </tree>
                 </field>
-                <field name="employee_mount_ids_custom"/>
                 <field name="employee_mount_ids">
                   <tree>
                       <field name="employee_name"/>
@@ -120,14 +118,14 @@
     </record>
 
     <!-- Vista tree for employees_rel -->
-    <record model="ir.ui.view" id="gestion_eventos.employees_rel_list">
-      <field name="name">employee_rel_list</field>
-      <field name="model">gestion_eventos.employees_rel</field>
+    <record model="ir.ui.view" id="gestion_eventos.employee_event_rel_list">
+      <field name="name">employee_event_rel_list</field>
+      <field name="model">gestion_eventos.employee_event_rel</field>
       <field name="arch" type="xml">
         <tree>
           <field name="employee_name"/>
           <field name="department_id"/>
-          <field name="event_ids" string="Event"/>
+          <field name="event_id" string="Event"/>
         </tree>
       </field>
     </record>
@@ -283,9 +281,9 @@
     </record>
 
     <!-- Action window for employees_rel -->
-    <record model="ir.actions.act_window" id="gestion_eventos.action_window_employees_rel">
-      <field name="name">Employees_rel</field>
-      <field name="res_model">gestion_eventos.employees_rel</field>
+    <record model="ir.actions.act_window" id="gestion_eventos.action_window_employee_event_rel">
+      <field name="name">Employee_event_rel</field>
+      <field name="res_model">gestion_eventos.employee_event_rel</field>
       <field name="view_mode">tree,form</field>
     </record>
 

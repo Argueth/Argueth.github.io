@@ -25,15 +25,10 @@ class Event(models.Model):
     last_budget_light_line_ids = fields.Many2many('gestion_eventos.line', string='Materiales de iluminación', compute='_compute_last_budget_light_line_ids')
     last_budget_sound_line_ids = fields.Many2many('gestion_eventos.line', string='Materiales de sonido', compute='_compute_last_budget_sound_line_ids')
     last_budget_mount_line_ids = fields.Many2many('gestion_eventos.line', string='Materiales de montaje', compute='_compute_last_budget_mount_line_ids')
-    
-    employee_light_ids_custom = fields.Many2many('gestion_eventos.hr_employee_custom', string='Empleados de iluminación', relation='gestion_eventos_employee_light_rel_custom', widget="many2many_tags")
-    employee_sound_ids_custom = fields.Many2many('gestion_eventos.hr_employee_custom', string='Empleado de sonido', relation='gestion_eventos_employee_sound_rel_custom', widget="many2many_tags")
-    employee_mount_ids_custom = fields.Many2many('gestion_eventos.hr_employee_custom', string='Empleados de montaje', relation='gestion_eventos_employee_mount_rel_custom', widget="many2many_tags")
 
-    employee_light_ids = fields.Many2many('gestion_eventos.employees_rel', string='Empleados de iluminación', relation='gestion_eventos_employee_light_rel', widget="many2many_tags")
-    employee_sound_ids = fields.Many2many('gestion_eventos.employees_rel', string='Empleado de sonido', relation='gestion_eventos_employee_sound_rel', widget="many2many_tags")
-    employee_mount_ids = fields.Many2many('gestion_eventos.employees_rel', string='Empleados de montaje', relation='gestion_eventos_employee_mount_rel', widget="many2many_tags")
-
+    employee_light_ids = fields.One2many('gestion_eventos.employee_event_rel', 'event_id', string='Empleados de iluminación', store=True)
+    employee_sound_ids = fields.One2many('gestion_eventos.employee_event_rel', 'event_id', string='Empleado de sonido', store=True)
+    employee_mount_ids = fields.One2many('gestion_eventos.employee_event_rel', 'event_id', string='Empleados de montaje', store=True)
 
     _sql_constraints = [
         ('unique_code','unique(code)','Code must be unique.')
