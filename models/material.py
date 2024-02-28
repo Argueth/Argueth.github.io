@@ -7,7 +7,7 @@ class Material(models.Model):
     _name = 'gestion_eventos.material'
     _description = 'Fase'
 
-    code = fields.Integer(string='Código')
+    code = fields.Char(string='Código')
     name = fields.Char(string='Name', required=True)
     type = fields.Selection([('L','LIGHTS'), ('S','SOUND'),('M','MOUNT'),('EL','ELECTRICAL'),('G','GRIPS'),
                              ('GR','GENERAL RESOURCES'),('O', 'OTHERS')], required=True)

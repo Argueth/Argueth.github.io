@@ -7,7 +7,7 @@ class Type(models.Model):
     _name = 'gestion_eventos.type'
     _description = 'Type'
 
-    code = fields.Integer(string='Código', required=True)
+    code = fields.Char(string='Código', required=True)
     name = fields.Char(string='Nombre', required=True)
 
     description = fields.Text(string='Descripción')

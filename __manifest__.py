@@ -30,6 +30,9 @@
         'views/views.xml',
         'views/templates.xml',
         'data/materials.xml',
+        'data/budget_templates.xml',
+        'data/lines.xml',
+        'data/types.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

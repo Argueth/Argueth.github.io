@@ -1,20 +1,23 @@
 <odoo>
     <data>
+        <record id="gestion_eventos.category_group" model="ir.module.category">
+            <field name="name">Gestion Eventos</field>
+        </record>
         <record id="gestion_eventos.event_manager_group" model="res.groups">
             <field name="name">Gestión de eventos / Event Manager</field>
-            <field name="category_id">1</field>
+            <field name="category_id" ref="gestion_eventos.category_group"/>
         </record>
         <record id="gestion_eventos.technic_group" model="res.groups">
             <field name="name">Gestión de eventos / Technic</field>
-            <field name="category_id">1</field>
+            <field name="category_id" ref="gestion_eventos.category_group"/>
         </record>
         <record id="gestion_eventos.comercial_group" model="res.groups">
             <field name="name">Gestión de eventos / Comercial</field>
-            <field name="category_id">1</field>
+            <field name="category_id" ref="gestion_eventos.category_group"/>
         </record>
         <record id="gestion_eventos.director_group" model="res.groups">
             <field name="name">Gestión de eventos / Director</field>
-            <field name="category_id">1</field>
+            <field name="category_id" ref="gestion_eventos.category_group"/>
         </record>
     </data>
 </odoo>

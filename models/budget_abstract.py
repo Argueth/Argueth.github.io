@@ -7,10 +7,10 @@ class Budget_Abstract(models.AbstractModel):
     _name = 'gestion_eventos.budget_abstract'
     _description = 'Budget'
 
-    code = fields.Integer(string='Código', required=True)
+    code = fields.Char(string='Código', required=True)
     name = fields.Char(string='Nombre', required=True)
     
-    line_ids = fields.One2many('gestion_eventos.line', 'code', string='Líneas')
+    
     
     total_price = fields.Float(string='Precio', compute='compute_total_price', store=True)
 
@@ -25,3 +25,8 @@ class Budget_Abstract(models.AbstractModel):
     def compute_total_price(self):
         for r in self:
             r.total_price = sum(r.line_ids.mapped('price'))
+
+    @api.onchange('line_ids')
+    def _onchange_line_ids(self):
+        for i, line in enumerate(self.line_ids, start=1):
+            line.code = i

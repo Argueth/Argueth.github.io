@@ -23,8 +23,9 @@ class EmployeeEventRel(models.Model):
         for record in self:
             conflicting_events = self.env['gestion_eventos.event'].search([
                 #('id', '!=', record.event_id.id),  # Evito el evento actual
-                ('start_date', '<=', record.event_id.end_date),  # El evento empieza antes de que termine el otro
-                ('end_date', '>=', record.event_id.start_date),  # El evento termina depués de que empiece el otro
+                '|',
+                '&', ('start_date', '<=', record.event_id.start_date), ('end_date', '>=', record.event_id.start_date),
+                '&', ('start_date', '<=', record.event_id.end_date), ('end_date', '>=', record.event_id.end_date)
                 #('id', 'in', record.event_ids.employee_light_ids.ids),
             ])
             
@@ -41,3 +42,49 @@ class EmployeeEventRel(models.Model):
                 #record.conflicting_event_info = conflicting_event_names
             else:
                 record.conflicting_event_info = ''
+    """
+
+            
+
+            if conflicting_events:
+                conflicting_event_names = []
+                for event in conflicting_events:
+                    if record.employee_id.id in event.employee_light_ids.ids:
+                        conflicting_event_names.append(event.name)
+
+                record.conflicting_event_info = ', '.join(conflicting_event_names)
+
+            else:
+                record.conflicting_event_info = 'NO'
+    """
+
+    """
+    @api.depends('event_id.start_date', 'event_id.end_date')
+    def _compute_conflicting_event_info(self):
+        for record in self:
+            conflicting_events = self.env['gestion_eventos.event'].search([
+                ('id', '!=', record.event_id.id),  # Excluir el propio evento
+                ('employee_light_ids.employee_id', '=', record.employee_id.id),
+                '|',
+                ('start_date', '<=', record.event_id.start_date),
+                ('end_date', '>=', record.event_id.start_date),
+            ])
+            conflicting_event_names = ", ".join(conflicting_events.mapped('name'))
+            record.conflicting_event_info = conflicting_event_names
+
+    @api.depends('employee_id','event_id')
+    def _compute_conflicting_event_info(self):
+        for record in self:
+            conflicting_events = self.env['gestion_eventos.event'].search([
+                ('id', '!=', record.event_id.id),  # Excluyo el evento actual
+                '|',
+                '&', ('start_date', '<=', record.event_id.start_date), ('end_date', '>=', record.event_id.start_date),
+                '&', ('start_date', '<=', record.event_id.end_date), ('end_date', '>=', record.event_id.end_date)
+            ])
+
+            if conflicting_events:
+                conflicting_event_names = ', '.join(conflicting_events.mapped('name'))
+                record.conflicting_event_info = conflicting_event_names
+            else:
+                record.conflicting_event_info = False
+    """

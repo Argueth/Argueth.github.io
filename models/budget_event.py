@@ -10,6 +10,7 @@ class Budget_Event(models.Model):
     _inherit = 'gestion_eventos.budget_abstract'
 
     template_id = fields.Many2one('gestion_eventos.budget_template', string='Plantilla de presupuesto')
+    line_ids = fields.One2many('gestion_eventos.line', 'budget_event_id', string='Líneas')
 
     @api.onchange('template_id')
     def _onchange_template_id(self):
@@ -35,6 +36,11 @@ class Budget_Event(models.Model):
     
     def clean_lines(self):
         self.line_ids.unlink()
+
+    @api.onchange('line_ids')
+    def _onchange_line_ids(self):
+        for i, line in enumerate(self.line_ids, start=1):
+            line.code = i
 
     """
     def write(self, vals):

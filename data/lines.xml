@@ -1,0 +1,96 @@
+<odoo>
+    <data noupdate="1">
+        <record model="gestion_eventos.line" id="gestion_eventos.montaje_standard_1">
+            <field name="concept_id" ref="gestion_eventos.tarima_1x2"/>
+            <field name="quantity">32</field>
+            <field name="budget_template_id" ref="gestion_eventos.montaje_standard"/>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.montaje_standard_2">
+            <field name="concept_id" ref="gestion_eventos.trust_2m"/>
+            <field name="quantity">8</field>
+            <field name="budget_template_id" ref="gestion_eventos.montaje_standard"/>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.montaje_standard_3">
+            <field name="concept_id" ref="gestion_eventos.trust_torre"/>
+            <field name="quantity">4</field>
+            <field name="budget_template_id" ref="gestion_eventos.montaje_standard"/>
+        </record>
+
+        <record model="gestion_eventos.line" id="gestion_eventos.orquesta_standard_1">
+            <field name="concept_id" ref="gestion_eventos.tarima_1x2"/>
+            <field name="quantity">32</field>
+            <field name="budget_template_id" ref="gestion_eventos.orquesta_standard"/>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.orquesta_standard_2">
+            <field name="concept_id" ref="gestion_eventos.trust_2m"/>
+            <field name="quantity">8</field>
+            <field name="budget_template_id" ref="gestion_eventos.orquesta_standard"/>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.orquesta_standard_3">
+            <field name="concept_id" ref="gestion_eventos.trust_torre"/>
+            <field name="quantity">4</field>
+            <field name="budget_template_id" ref="gestion_eventos.orquesta_standard"/>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.orquesta_standard_4">
+            <field name="concept_id" ref="gestion_eventos.trust_2m"/>
+            <field name="quantity">10</field>
+            <field name="budget_template_id" ref="gestion_eventos.orquesta_standard"/>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.orquesta_standard_5">
+            <field name="concept_id" ref="gestion_eventos.trust_torre"/>
+            <field name="quantity">4</field>
+            <field name="budget_template_id" ref="gestion_eventos.orquesta_standard"/>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.orquesta_standard_6">
+            <field name="concept_id" ref="gestion_eventos.mesa_sonido"/>
+            <field name="quantity">1</field>
+            <field name="budget_template_id" ref="gestion_eventos.orquesta_standard"/>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.orquesta_standard_7">
+            <field name="concept_id" ref="gestion_eventos.mesa_iluminacion"/>
+            <field name="quantity">1</field>
+            <field name="budget_template_id" ref="gestion_eventos.orquesta_standard"/>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.orquesta_standard_8">
+            <field name="concept_id" ref="gestion_eventos.subwoofer"/>
+            <field name="quantity">2</field>
+            <field name="budget_template_id" ref="gestion_eventos.orquesta_standard"/>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.orquesta_standard_9">
+            <field name="concept_id" ref="gestion_eventos.frontfill"/>
+            <field name="quantity">4</field>
+            <field name="budget_template_id" ref="gestion_eventos.orquesta_standard"/>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.orquesta_standard_10">
+            <field name="concept_id" ref="gestion_eventos.pa"/>
+            <field name="quantity">2</field>
+            <field name="budget_template_id" ref="gestion_eventos.orquesta_standard"/>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.orquesta_standard_11">
+            <field name="concept_id" ref="gestion_eventos.pc_led_16"/>
+            <field name="quantity">10</field>
+            <field name="budget_template_id" ref="gestion_eventos.orquesta_standard"/>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.orquesta_standard_12">
+            <field name="concept_id" ref="gestion_eventos.par_led_6"/>
+            <field name="quantity">20</field>
+            <field name="budget_template_id" ref="gestion_eventos.orquesta_standard"/>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.orquesta_standard_13">
+            <field name="concept_id" ref="gestion_eventos.funcion_completa"/>
+            <field name="quantity">1</field>
+            <field name="budget_template_id" ref="gestion_eventos.orquesta_standard"/>
+        </record>
+
+        <record model="gestion_eventos.line" id="gestion_eventos.obra_teatro_1">
+            <field name="concept_id" ref="gestion_eventos.funcion_completa"/>
+            <field name="quantity">1</field>
+            <field name="budget_template_id" ref="gestion_eventos.obra_teatro"/>
+        </record>
+        <record model="gestion_eventos.line" id="gestion_eventos.obra_teatro_2">
+            <field name="concept_id" ref="gestion_eventos.diseño_completo"/>
+            <field name="quantity">1</field>
+            <field name="budget_template_id" ref="gestion_eventos.obra_teatro"/>
+        </record>
+    </data>
+</odoo>

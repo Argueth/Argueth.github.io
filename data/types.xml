@@ -1,0 +1,24 @@
+<odoo>
+    <data noupdate="1">
+        <record model="gestion_eventos.type" id="gestion_eventos.type_inside">
+            <field name="code">C0001</field>
+            <field name="name">Interior</field>
+            <field name="description">Evento a cubierto en el interior de un local.</field>
+        </record>
+        <record model="gestion_eventos.type" id="gestion_eventos.type_outside">
+            <field name="code">C0002</field>
+            <field name="name">Exterior</field>
+            <field name="description">Evento a descubierto en el exterior.</field>
+        </record>
+        <record model="gestion_eventos.type" id="gestion_eventos.type_pirotecnics">
+            <field name="code">C0003</field>
+            <field name="name">Pirotecnia</field>
+            <field name="description">Evento con pirotecnia y medidas de seguridad especiales.</field>
+        </record>
+        <record model="gestion_eventos.type" id="gestion_eventos.type_circus">
+            <field name="code">C0004</field>
+            <field name="name">Circus</field>
+            <field name="description">Evento circense con elementos colgantes y medidas de seguridad especiales</field>
+        </record>
+    </data>
+</odoo>

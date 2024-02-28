@@ -1,0 +1,16 @@
+<odoo>
+    <data noupdate="1">
+        <record model="gestion_eventos.budget_template" id="gestion_eventos.montaje_standard">
+            <field name="code">M0001</field>
+            <field name="name">Montaje Standard</field>
+        </record>
+        <record model="gestion_eventos.budget_template" id="gestion_eventos.orquesta_standard">
+            <field name="code">F0001</field>
+            <field name="name">Orquesta Standard</field>
+        </record>
+        <record model="gestion_eventos.budget_template" id="gestion_eventos.obra_teatro">
+            <field name="code">F0002</field>
+            <field name="name">Función de teatro</field>
+        </record>
+    </data>
+</odoo>
