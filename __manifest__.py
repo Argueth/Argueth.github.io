@@ -25,14 +25,19 @@
     'application':True,
     # always loaded
     'data': [
+        #security
         'security/groups.xml',
         'security/ir.model.access.csv',
+        #views
         'views/views.xml',
         'views/templates.xml',
+        #data
         'data/materials.xml',
         'data/budget_templates.xml',
         'data/lines.xml',
         'data/types.xml',
+        #reports
+        'reports/materials_report.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

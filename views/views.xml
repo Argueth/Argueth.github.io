@@ -160,6 +160,30 @@
       </field>
     </record>
 
+    <!-- Vista form para materiales -->
+    <record model="ir.ui.view" id="gestion_eventos.materials_form">
+      <field name="name">materials_form</field>
+      <field name="model">gestion_eventos.material</field>
+      <field name="arch" type="xml">
+        <form>
+          <group columns="2">
+            <group string="DATOS MATERIAL">
+              <field name="code"/>
+              <field name="name"/>
+              <field name="type"/>
+              <field name="cost_price"/>
+              <field name="pvp"/>
+            </group>
+            <group string="DATOS PROVEEDOR">
+              <field name="provider_id"/>
+              <field name="provider_phone"/>
+              <field name="provider_address"/>
+            </group>
+          </group>
+        </form>
+      </field>
+    </record>
+
     <!-- Vista tree para types -->
     <record model="ir.ui.view" id="gestion_eventos.types_list">
       <field name="name">types_list</field>

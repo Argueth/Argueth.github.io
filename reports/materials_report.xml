@@ -1,0 +1,57 @@
+<odoo>
+    <record id="gestion_eventos.materials_pdf_report" model="ir.actions.report">
+        <field name="name">Inventario de stock de almacén</field>
+        <field name="model">gestion_eventos.material</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">gestion_eventos.material_report</field>
+        <field name="binding_model_id" ref="model_gestion_eventos_material"/>
+        <field name="binding_type">report</field>
+        <field name="binding_view_types">list,form</field>
+        <field name="print_report_name">'Stock almacén %s'</field>
+    </record>
+    <template id="gestion_eventos.material_report">
+        <t t-call="web.html_container">
+            <!--Para imprimir mas de un material-->
+            <t t-call="web.external_layout">    
+                <!--Encabezado del pdf-->
+                <div>
+                    <h1 style="color: #00FFFF; font-size= 24px; font-weight: bold;">Inventario almacen</h1>
+                    <table style="width: 100%; page-break-inside: avoid;">   
+                        <thead>
+                            <tr>
+                                <th style="background-color: #40E0D0;">Código</th>
+                                <th style="background-color: #40E0D0;">Nombre</th>
+                                <th style="background-color: #40E0D0;">Tipo</th>
+                                <th style="background-color: #40E0D0;">Precio de coste</th>
+                                <th style="background-color: #40E0D0;">PVP</th>
+                                <th style="background-color: #40E0D0;">Proveedor</th>
+                                <th style="background-color: #40E0D0;">Contacto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="doc">
+                                <t t-set="row_class" t-value="'odd'"/>
+                                <t t-if="doc_index % 2 == 0">
+                                    <t t-set="row_class" t-value="'even'"/>
+                                </t>
+                                <tr t-att-class="row_class">
+                                    <style>
+                                        .even{ background-color: #f2f2f2;}
+                                        .odd{ background-color: #ffffff;}
+                                    </style>
+                                    <td><t t-esc="doc.code"/></td>
+                                    <td><t t-esc="doc.name"/></td>
+                                    <td><t t-esc="doc.type"/></td>
+                                    <td><t t-esc="doc.cost_price"/></td>
+                                    <td><t t-esc="doc.pvp"/></td>
+                                    <td><t t-esc="doc.provider_id.name"/></td>
+                                    <td><t t-esc="doc.provider_id.phone"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>     
+                </div>  
+            </t>   
+        </t>
+    </template>
+</odoo>

@@ -12,7 +12,7 @@ class EmployeeEventRel(models.Model):
 
     employee_name = fields.Char(string="Nombre", related='employee_id.name')
     department_id = fields.Many2one('hr.department', string="Departamento", related='employee_id.department_id')
-    conflicting_event_info = fields.Char(string="Evento en conflicto", compute='_compute_conflicting_event_info')
+    conflicting_event_info = fields.Char(string="Evento en conflicto", compute='_compute_conflicting_event_info', store=True)
 
     _sql_constraints = [
         ('unique_combination','unique(employee,event)','Employee plus event combination must be unique.')
@@ -33,7 +33,7 @@ class EmployeeEventRel(models.Model):
                 conflicting_event_names = []
                 for event in conflicting_events:
                     if event.id != record.event_id.id:
-                        if self.employee_id in event.employee_light_ids.employee_id:
+                        if record.employee_id in event.employee_light_ids.employee_id:
                             conflicting_event_names.append(event.name)
                 
                 record.conflicting_event_info = ', '.join(conflicting_event_names)
@@ -42,49 +42,6 @@ class EmployeeEventRel(models.Model):
                 #record.conflicting_event_info = conflicting_event_names
             else:
                 record.conflicting_event_info = ''
-    """
-
-            
-
-            if conflicting_events:
-                conflicting_event_names = []
-                for event in conflicting_events:
-                    if record.employee_id.id in event.employee_light_ids.ids:
-                        conflicting_event_names.append(event.name)
-
-                record.conflicting_event_info = ', '.join(conflicting_event_names)
-
-            else:
-                record.conflicting_event_info = 'NO'
-    """
-
-    """
-    @api.depends('event_id.start_date', 'event_id.end_date')
-    def _compute_conflicting_event_info(self):
-        for record in self:
-            conflicting_events = self.env['gestion_eventos.event'].search([
-                ('id', '!=', record.event_id.id),  # Excluir el propio evento
-                ('employee_light_ids.employee_id', '=', record.employee_id.id),
-                '|',
-                ('start_date', '<=', record.event_id.start_date),
-                ('end_date', '>=', record.event_id.start_date),
-            ])
-            conflicting_event_names = ", ".join(conflicting_events.mapped('name'))
-            record.conflicting_event_info = conflicting_event_names
-
-    @api.depends('employee_id','event_id')
-    def _compute_conflicting_event_info(self):
-        for record in self:
-            conflicting_events = self.env['gestion_eventos.event'].search([
-                ('id', '!=', record.event_id.id),  # Excluyo el evento actual
-                '|',
-                '&', ('start_date', '<=', record.event_id.start_date), ('end_date', '>=', record.event_id.start_date),
-                '&', ('start_date', '<=', record.event_id.end_date), ('end_date', '>=', record.event_id.end_date)
-            ])
-
-            if conflicting_events:
-                conflicting_event_names = ', '.join(conflicting_events.mapped('name'))
-                record.conflicting_event_info = conflicting_event_names
-            else:
-                record.conflicting_event_info = False
-    """
+    
+    def write(self, vals):
+        super(EmployeeEventRel, self).write(vals)

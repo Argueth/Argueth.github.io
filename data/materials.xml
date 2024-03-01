@@ -4,6 +4,7 @@
             <field name="code">M0001</field>
             <field name="name">Montaje</field>
             <field name="type">M</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">200</field>
             <field name="pvp">300</field>
         </record>
@@ -11,6 +12,7 @@
             <field name="code">L0001</field>
             <field name="name">Diseño Iuminación</field>
             <field name="type">L</field>
+            <field name="provider_id">26</field>
             <field name="cost_price">350</field>
             <field name="pvp">500</field>
         </record>
@@ -18,6 +20,7 @@
             <field name="code">S0001</field>
             <field name="name">Diseño Sonido</field>
             <field name="type">S</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">350</field>
             <field name="pvp">500</field>
         </record>
@@ -25,6 +28,7 @@
             <field name="code">O0001</field>
             <field name="name">Diseño Completo</field>
             <field name="type">O</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">700</field>
             <field name="pvp">900</field>
         </record>
@@ -32,6 +36,7 @@
             <field name="code">L0002</field>
             <field name="name">Función Iuminción</field>
             <field name="type">L</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">200</field>
             <field name="pvp">250</field>
         </record>
@@ -39,6 +44,7 @@
             <field name="code">S0002</field>
             <field name="name">Función Sonido</field>
             <field name="type">S</field>
+            <field name="provider_id">26</field>
             <field name="cost_price">200</field>
             <field name="pvp">250</field>
         </record>
@@ -46,6 +52,7 @@
             <field name="code">O0002</field>
             <field name="name">Función Completa</field>
             <field name="type">O</field>
+            <field name="provider_id">26</field>
             <field name="cost_price">400</field>
             <field name="pvp">600</field>
         </record>
@@ -53,6 +60,7 @@
             <field name="code">L0003</field>
             <field name="name">Par Led 3cn</field>
             <field name="type">L</field>
+            <field name="provider_id">26</field>
             <field name="cost_price">10</field>
             <field name="pvp">15</field>
         </record>
@@ -60,6 +68,7 @@
             <field name="code">L0004</field>
             <field name="name">Par Led 6cn</field>
             <field name="type">L</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">12</field>
             <field name="pvp">20</field>
         </record>
@@ -67,6 +76,7 @@
             <field name="code">L0005</field>
             <field name="name">PC Led 16cn</field>
             <field name="type">L</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">15</field>
             <field name="pvp">25</field>
         </record>
@@ -74,6 +84,7 @@
             <field name="code">L0006</field>
             <field name="name">PC 2kw</field>
             <field name="type">L</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">10</field>
             <field name="pvp">15</field>
         </record>
@@ -81,6 +92,7 @@
             <field name="code">L0007</field>
             <field name="name">PC 1kw</field>
             <field name="type">L</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">8</field>
             <field name="pvp">12</field>
         </record>
@@ -88,6 +100,7 @@
             <field name="code">S0003</field>
             <field name="name">Micrófono de botón Senheisser</field>
             <field name="type">S</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">12</field>
             <field name="pvp">18</field>
         </record>
@@ -95,6 +108,7 @@
             <field name="code">S0004</field>
             <field name="name">Micrófono de cañon Senheisser</field>
             <field name="type">S</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">15</field>
             <field name="pvp">20</field>
         </record>
@@ -102,6 +116,7 @@
             <field name="code">S0005</field>
             <field name="name">Pala de frecuencias</field>
             <field name="type">S</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">20</field>
             <field name="pvp">30</field>
         </record>
@@ -109,6 +124,7 @@
             <field name="code">S0006</field>
             <field name="name">P.A.</field>
             <field name="type">S</field>
+            <field name="provider_id">26</field>
             <field name="cost_price">50</field>
             <field name="pvp">70</field>
         </record>
@@ -116,6 +132,7 @@
             <field name="code">S0007</field>
             <field name="name">Frontfill</field>
             <field name="type">S</field>
+            <field name="provider_id">26</field>
             <field name="cost_price">45</field>
             <field name="pvp">65</field>
         </record>
@@ -123,6 +140,7 @@
             <field name="code">S0008</field>
             <field name="name">Subwoofer</field>
             <field name="type">S</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">60</field>
             <field name="pvp">75</field>
         </record>
@@ -130,6 +148,7 @@
             <field name="code">L0008</field>
             <field name="name">Mesa de Iluminación</field>
             <field name="type">L</field>
+            <field name="provider_id">26</field>
             <field name="cost_price">80</field>
             <field name="pvp">100</field>
         </record>
@@ -137,6 +156,7 @@
             <field name="code">S0009</field>
             <field name="name">Mesa de Sonido</field>
             <field name="type">S</field>
+            <field name="provider_id">26</field>
             <field name="cost_price">80</field>
             <field name="pvp">100</field>
         </record>
@@ -144,6 +164,7 @@
             <field name="code">M0002</field>
             <field name="name">Tarima 1 x 2 metros</field>
             <field name="type">M</field>
+            <field name="provider_id">26</field>
             <field name="cost_price">10</field>
             <field name="pvp">15</field>
         </record>
@@ -151,6 +172,7 @@
             <field name="code">M0003</field>
             <field name="name">Trust de esquina</field>
             <field name="type">M</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">8</field>
             <field name="pvp">12</field>
         </record>
@@ -158,6 +180,7 @@
             <field name="code">M0004</field>
             <field name="name">Trust 1 metro</field>
             <field name="type">M</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">5</field>
             <field name="pvp">10</field>
         </record>
@@ -165,6 +188,7 @@
             <field name="code">M0005</field>
             <field name="name">Trust 2 metros</field>
             <field name="type">M</field>
+            <field name="provider_id">26</field>
             <field name="cost_price">10</field>
             <field name="pvp">14</field>
         </record>
@@ -172,6 +196,7 @@
             <field name="code">M0006</field>
             <field name="name">Trust 3 metros</field>
             <field name="type">M</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">12</field>
             <field name="pvp">14</field>
         </record>
@@ -179,6 +204,7 @@
             <field name="code">M0007</field>
             <field name="name">Soporte T para focos</field>
             <field name="type">M</field>
+            <field name="provider_id">26</field>
             <field name="cost_price">12</field>
             <field name="pvp">15</field>
         </record>
@@ -186,6 +212,7 @@
             <field name="code">M0008</field>
             <field name="name">Torre elevadora</field>
             <field name="type">M</field>
+            <field name="provider_id">26</field>
             <field name="cost_price">40</field>
             <field name="pvp">50</field>
         </record>
@@ -193,6 +220,7 @@
             <field name="code">L0009</field>
             <field name="name">Recorte 1kw</field>
             <field name="type">L</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">20</field>
             <field name="pvp">30</field>
         </record>
@@ -200,6 +228,7 @@
             <field name="code">L0010</field>
             <field name="name">Recorte 2kw</field>
             <field name="type">L</field>
+            <field name="provider_id">25</field>
             <field name="cost_price">25</field>
             <field name="pvp">35</field>
         </record>
@@ -207,6 +236,7 @@
             <field name="code">O0003</field>
             <field name="name">Máquina de humo</field>
             <field name="type">O</field>
+            <field name="provider_id">26</field>
             <field name="cost_price">30</field>
             <field name="pvp">40</field>
         </record>
