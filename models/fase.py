@@ -7,13 +7,13 @@ class Fase(models.Model):
     _name = 'gestion_eventos.fase'
     _description = 'Fase'
 
-    code = fields.Integer(required=True)
     name = fields.Char(string='Fase', required=True)
-    start_date = fields.Date()
-    end_date = fields.Date()
+    description = fields.Text(string='Descripción')
+    start_date = fields.Datetime(string='Fecha de inicio')
+    end_date = fields.Datetime(string="Fecha de fin")
 
     event_id = fields.Many2one('gestion_eventos.event')
 
     _sql_constraints = [
-        ('unique_code','unique(code)','Code must be unique.')
+        ('unique_code','unique(name, event_id)','Code must be unique.')
     ]

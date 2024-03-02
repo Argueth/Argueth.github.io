@@ -37,7 +37,8 @@
         'data/lines.xml',
         'data/types.xml',
         #reports
-        'reports/materials_report.xml'
+        'reports/materials_report.xml',
+        'reports/events_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -40,7 +40,7 @@
         <form>
           <header>
             <button name="change_event_status" string="Cambiar estado" class="oe_highlight" type="object" confirm="¿Seguro que quiere cambiar el estado del evento?"/>
-            <field name="event_status" widget="statusbar" statusbar_visible="0,1,2"/>
+            <field name="event_status" widget="statusbar" statusbar_visible="0,1,2,3"/>
           </header>
           <group columns='2'>
             <group string="DATOS EVENTO">
@@ -59,7 +59,7 @@
           <group>
             <field name="budget_ids"/>
           </group>
-          <notebook>
+          <notebook attrs="{'invisible': [('event_status', '=', '0')]}">
             <page string="Iluminacion">
               <group>
                 <field name="last_budget_light_line_ids">
@@ -69,10 +69,10 @@
                   </tree>
                 </field>
                 <field name="employee_light_ids">
-                  <tree>
-                      <field name="employee_name"/>
-                      <field name="department_id"
-                              decoration-danger="department_id != 'Gestión de Eventos / Iluminación'"/>
+                  <tree editable='top'>
+                      <field name="employee_id"/>
+                      <field name="department_name"
+                              decoration-danger="department_name != 'Iluminación'"/>
                       <field name="conflicting_event_info"
                               decoration-danger="conflicting_event_info != ''"/>
                   </tree>
@@ -88,10 +88,12 @@
                   </tree>
                 </field>
                 <field name="employee_sound_ids">
-                  <tree>
-                      <field name="employee_name"/>
-                      <field name="department_id" attrs="{'style': 'background-color: red;'}"/>
-                      <field name="conflicting_event_info"/>
+                  <tree editable='top'>
+                      <field name="employee_id"/>
+                      <field name="department_name" 
+                              decoration-danger="department_name != 'Sonido'"/>
+                      <field name="conflicting_event_info"
+                              decoration-danger="conflicting_event_info != ''"/>
                   </tree>
                 </field>
               </group>
@@ -105,23 +107,54 @@
                   </tree>
                 </field>
                 <field name="employee_mount_ids">
-                  <tree>
-                      <field name="employee_name"/>
-                      <field name="department_id" attrs="{'style': 'background-color: red;'}"/>
-                      <field name="conflicting_event_info"/>
+                  <tree editable='top'>
+                      <field name="employee_id"/>
+                      <field name="department_name" 
+                              decoration-danger="department_name != 'Montaje'"/>
+                      <field name="conflicting_event_info"
+                              decoration-danger="conflicting_event_info != ''"/>
                   </tree>
                 </field>
               </group>
+            </page>
+            <page string="Fases">
+              <field name="fases_id"/>
             </page>
           </notebook>
         </form>
       </field>
     </record>
 
-    <!-- Vista tree for employees_rel -->
-    <record model="ir.ui.view" id="gestion_eventos.employee_event_rel_list">
-      <field name="name">employee_event_rel_list</field>
-      <field name="model">gestion_eventos.employee_event_rel</field>
+    <!-- Vista tree for light_employees_event_rel -->
+    <record model="ir.ui.view" id="gestion_eventos.light_employee_event_rel_list">
+      <field name="name">light_employee_event_rel_list</field>
+      <field name="model">gestion_eventos.light_employee_event_rel</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="employee_name"/>
+          <field name="department_id"/>
+          <field name="event_id" string="Event"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista tree for sound_employees_event_rel -->
+    <record model="ir.ui.view" id="gestion_eventos.sound_employee_event_rel_list">
+      <field name="name">sound_employee_event_rel_list</field>
+      <field name="model">gestion_eventos.sound_employee_event_rel</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="employee_name"/>
+          <field name="department_id"/>
+          <field name="event_id" string="Event"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista tree for mount_employees_event_rel -->
+    <record model="ir.ui.view" id="gestion_eventos.mount_employee_event_rel_list">
+      <field name="name">mount_employee_event_rel_list</field>
+      <field name="model">gestion_eventos.mount_employee_event_rel</field>
       <field name="arch" type="xml">
         <tree>
           <field name="employee_name"/>
@@ -136,12 +169,32 @@
       <field name="name">fases_list</field>
       <field name="model">gestion_eventos.fase</field>
       <field name="arch" type="xml">
-        <tree>
-          <field name="code"/>
+        <tree editable='top'>
           <field name="name"/>
+          <field name='description'/>
           <field name="start_date"/>
           <field name="end_date"/>
         </tree>
+      </field>
+    </record>
+
+    <!-- Vista form for fases -->
+    <record model="ir.ui.view" id="gestion_eventos.fases_form">
+      <field name="name">fases_form</field>
+      <field name="model">gestion_eventos.fase</field>
+      <field name="arch" type="xml">
+        <form>
+          <group columns='2'>
+            <group>
+            <field name='name'/>
+            <field name='start_date'/>
+            <field name='end_date'/>
+            </group>
+            <group>
+              <field name='description'/>
+            </group>
+          </group>
+        </form>
       </field>
     </record>
 
@@ -230,8 +283,8 @@
       <field name="arch" type="xml">
         <form>
           <group>
-            <field name="name"/>
             <field name="code"/>
+            <field name="name"/>
             <field name="template_id"/>
             <field name="line_ids"/>
             <field name="total_price"/>
@@ -305,10 +358,24 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- Action window for employees_rel -->
-    <record model="ir.actions.act_window" id="gestion_eventos.action_window_employee_event_rel">
-      <field name="name">Employee_event_rel</field>
-      <field name="res_model">gestion_eventos.employee_event_rel</field>
+    <!-- Action window for light_employees_event_rel -->
+    <record model="ir.actions.act_window" id="gestion_eventos.action_window_light_employee_event_rel">
+      <field name="name">Light_Employee_event_rel</field>
+      <field name="res_model">gestion_eventos.light_employee_event_rel</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Action window for sound_employees_event_rel -->
+    <record model="ir.actions.act_window" id="gestion_eventos.action_window_sound_employee_event_rel">
+      <field name="name">Sound_Employee_event_rel</field>
+      <field name="res_model">gestion_eventos.sound_employee_event_rel</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Action window for mount_employees_event_rel -->
+    <record model="ir.actions.act_window" id="gestion_eventos.action_window_mount_employee_event_rel">
+      <field name="name">Mount_Employee_event_rel</field>
+      <field name="res_model">gestion_eventos.mount_employee_event_rel</field>
       <field name="view_mode">tree,form</field>
     </record>
 

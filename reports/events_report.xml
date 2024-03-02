@@ -1,0 +1,229 @@
+<odoo>
+    <record id="gestion_eventos.events_pdf_report" model="ir.actions.report">
+        <field name="name">Informe de Evento</field>
+        <field name="model">gestion_eventos.event</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">gestion_eventos.events_report</field>
+        <field name="binding_model_id" ref="model_gestion_eventos_event"/>
+        <field name="binding_type">report</field>
+        <field name="binding_view_types">list,form</field>
+        <field name="print_report_name">'Informe de Evento'</field>
+    </record>
+    <template id="gestion_eventos.events_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <head>
+                        <style>
+                            .clarito{ background-color: #f4f4f4; }
+                            .oscurito{ background-color: #e4e4e4; }
+                            h1{ color: #000; font-size: 25px; font-weight: bold; }
+                            th{ background-color: #959595; color:#ffffff; padding-left:5px; }
+                            table { width: 100%; page-break-inside: avoid; }
+                            .cabecera_numero { text-align:right; padding:0px 10px; }
+                            .td_left{ padding-left:5px; }
+                            .td_right{ text-align:right; padding:0px 10px; }
+                            .div_info { border:1px solid #000000; border-radius: 4px; padding: 0px 30px }
+                            .div_left { float: left; }
+                            .div_right { float: right; }
+                        </style>
+                    </head>
+                    <div class="page">
+                        <div class="div_left">
+                            <h1>Datos del Evento</h1>
+                            <div class="div_info">
+                                <p><strong>Código:</strong> <t t-esc="doc.code"/><br/>
+                                <strong>Nombre:</strong> <t t-esc="doc.name"/><br/>
+                                <strong>Fecha de inicio:</strong> <t t-esc="doc.start_date"/><br/>
+                                <strong>Fecha de fin:</strong> <t t-esc="doc.end_date"/><br/>
+                                <strong>Tipo:</strong> <t t-esc="doc.type_id.name"/></p>
+                            </div>
+                        </div>
+                        <div class="div_right">
+                            <h1>Datos del Cliente</h1>
+                            <div class="div_info">
+                                <p><strong>Cliente:</strong> <t t-esc="doc.customer_id.name"/><br/>
+                                <strong>Teléfono:</strong> <t t-esc="doc.customer_phone"/><br/>
+                                <strong>Dirección:</strong> <t t-esc="doc.customer_address"/></p>
+                            </div>
+                        </div>
+                    </div><br/>
+                    <div style="margin-top:180px;">
+                        <h1>Presupuestos</h1>
+                        <table style="width: 100%; page-break-inside: avoid;">   
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Nombre</th>
+                                    <th class="cabecera_numero">Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="index" t-value="0"/>
+                                <t t-foreach="doc.budget_ids" t-as="budget">
+                                    <tr t-att-class="'clarito' if index % 2 == 0 else 'oscurito'">
+                                        <td class="td_left"><t t-esc="budget.code"/></td>
+                                        <td class="td_left"><t t-esc="budget.name"/></td>
+                                        <td class="td_right"><t t-esc="budget.total_price"/>€</td>
+                                    </tr>
+                                    <t t-set="index" t-value="index + 1"/>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="margin-top:20px;">
+                        <h1>Materiales de Iluminación</h1>
+                        <table>   
+                            <thead>
+                                <tr>
+                                    <th>Concepto</th>
+                                    <th class="cabecera_numero">Cantidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="index" t-value="0"/>
+                                <t t-foreach="doc.last_budget_light_line_ids" t-as="line">
+                                    <tr t-att-class="'clarito' if index % 2 == 0 else 'oscurito'">
+                                        <td class="td_left"><t t-esc="line.concept_id.name"/></td>
+                                        <td class="td_right"><t t-esc="line.quantity"/></td>
+                                    </tr>
+                                    <t t-set="index" t-value="index + 1"/>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="margin-top:20px;">
+                        <h1>Materiales de Sonido</h1>
+                        <table>   
+                            <thead>
+                                <tr>
+                                    <th>Concepto</th>
+                                    <th class="cabecera_numero">Cantidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="index" t-value="0"/>
+                                <t t-foreach="doc.last_budget_sound_line_ids" t-as="line">
+                                    <tr t-att-class="'clarito' if index % 2 == 0 else 'oscurito'">
+                                        <td class="td_left"><t t-esc="line.concept_id.name"/></td>
+                                        <td class="td_right"><t t-esc="line.quantity"/></td>
+                                    </tr>
+                                    <t t-set="index" t-value="index + 1"/>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="margin-top:20px;">
+                        <h1>Materiales de Montaje</h1>
+                        <table>   
+                            <thead>
+                                <tr>
+                                    <th>Concepto</th>
+                                    <th class="cabecera_numero">Cantidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="index" t-value="0"/>
+                                <t t-foreach="doc.last_budget_mount_line_ids" t-as="line">
+                                    <tr t-att-class="'clarito' if index % 2 == 0 else 'oscurito'">
+                                        <td class="td_left"><t t-esc="line.concept_id.name"/></td>
+                                        <td class="td_right"><t t-esc="line.quantity"/></td>
+                                    </tr>
+                                    <t t-set="index" t-value="index + 1"/>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="margin-top:20px;">
+                        <h1>Empleados de Iluminación</h1>
+                        <table style="width: 100%; page-break-inside: avoid;">   
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Departamento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="index" t-value="0"/>
+                                <t t-foreach="doc.employee_light_ids" t-as="employee">
+                                    <tr t-att-class="'clarito' if index % 2 == 0 else 'oscurito'">
+                                        <td class="td_left"><t t-esc="employee.employee_id.name"/></td>
+                                        <td class="td_left" style="color: red if line.concept_id.name != 'Iluminación' else inherit;"><t t-esc="employee.department_name"/></td>
+                                    </tr>
+                                    <t t-set="index" t-value="index + 1"/>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="margin-top:20px;">
+                        <h1>Empleados de Sonido</h1>
+                        <table style="width: 100%; page-break-inside: avoid;">   
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Departamento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="index" t-value="0"/>
+                                <t t-foreach="doc.employee_sound_ids" t-as="employee">
+                                    <tr t-att-class="'clarito' if index % 2 == 0 else 'oscurito'">
+                                        <td class="td_left"><t t-esc="employee.employee_id.name"/></td>
+                                        <td class="td_left" style="color: red if line.concept_id.name != 'Iluminación' else inherit;"><t t-esc="employee.department_name"/></td>
+                                    </tr>
+                                    <t t-set="index" t-value="index + 1"/>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="margin-top:20px;">
+                        <h1>Empleados de Montaje</h1>
+                        <table style="width: 100%; page-break-inside: avoid;">   
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Departamento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="index" t-value="0"/>
+                                <t t-foreach="doc.employee_mount_ids" t-as="employee">
+                                    <tr t-att-class="'clarito' if index % 2 == 0 else 'oscurito'">
+                                        <td class="td_left"><t t-esc="employee.employee_id.name"/></td>
+                                        <td class="td_left" style="color: red if line.concept_id.name != 'Iluminación' else inherit;"><t t-esc="employee.department_name"/></td>
+                                    </tr>
+                                    <t t-set="index" t-value="index + 1"/>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="margin-top:20px;">
+                        <h1>Fases</h1>
+                        <table style="width: 100%; page-break-inside: avoid;">   
+                            <thead>
+                                <tr>
+                                    <th>Fase</th>
+                                    <th>Descripción</th>
+                                    <th>Fecha de inicio</th>
+                                    <th>Fecha de fin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="index" t-value="0"/>
+                                <t t-foreach="doc.fases_id" t-as="fase">
+                                    <tr t-att-class="'clarito' if index % 2 == 0 else 'oscurito'">
+                                        <td class="td_left"><t t-esc="fase.name"/></td>
+                                        <td class="td_left"><t t-esc="fase.description"/></td>
+                                        <td class="td_left"><t t-esc="fase.start_date"/></td>
+                                        <td class="td_left"><t t-esc="fase.end_date"/></td>
+                                    </tr>
+                                    <t t-set="index" t-value="index + 1"/>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

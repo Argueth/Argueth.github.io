@@ -12,23 +12,23 @@ class Event(models.Model):
     start_date = fields.Date(string="Fecha de inicio", required=True)
     end_date = fields.Date(string="Fecha de fin", required=True)
 
-    event_status = fields.Selection([('0','Propuesta'), ('1','Aceptado'), ('2','Terminado')], required=True, default='0')
+    event_status = fields.Selection([('0','Propuesta'), ('1','Aceptado'), ('2','En progreso'), ('3','Terminado')], required=True, default='0')
 
     customer_id = fields.Many2one('res.partner', string='Cliente', domain=[('customer_rank', '!=', 0)], required=True)
     customer_phone = fields.Char(string='Teléfono del Cliente')
     customer_address = fields.Char(string='Dirección del Cliente')
 
     type_id = fields.Many2one('gestion_eventos.type',string='Tipo de evento')
-    fases_id = fields.One2many('gestion_eventos.fase','code')
+    fases_id = fields.One2many('gestion_eventos.fase','event_id')
     budget_ids = fields.Many2many('gestion_eventos.budget_event', string='Presupuestos')
 
     last_budget_light_line_ids = fields.Many2many('gestion_eventos.line', string='Materiales de iluminación', compute='_compute_last_budget_light_line_ids')
     last_budget_sound_line_ids = fields.Many2many('gestion_eventos.line', string='Materiales de sonido', compute='_compute_last_budget_sound_line_ids')
     last_budget_mount_line_ids = fields.Many2many('gestion_eventos.line', string='Materiales de montaje', compute='_compute_last_budget_mount_line_ids')
 
-    employee_light_ids = fields.One2many('gestion_eventos.employee_event_rel', 'event_id', string='Empleados de iluminación', store=True)
-    employee_sound_ids = fields.One2many('gestion_eventos.employee_event_rel', 'event_id', string='Empleado de sonido', store=True)
-    employee_mount_ids = fields.One2many('gestion_eventos.employee_event_rel', 'event_id', string='Empleados de montaje', store=True)
+    employee_light_ids = fields.One2many('gestion_eventos.light_employee_event_rel', 'event_id', string='Empleados de iluminación', store=True)
+    employee_sound_ids = fields.One2many('gestion_eventos.sound_employee_event_rel', 'event_id', string='Empleado de sonido', store=True)
+    employee_mount_ids = fields.One2many('gestion_eventos.mount_employee_event_rel', 'event_id', string='Empleados de montaje', store=True)
 
     _sql_constraints = [
         ('unique_code','unique(code)','Code must be unique.')
@@ -36,7 +36,7 @@ class Event(models.Model):
 
     def change_event_status(self):
         for event in self:
-            if int(event.event_status) < 2:
+            if int(event.event_status) < 3:
                 event.event_status = str(int(event.event_status)+1)
             else:
                 event.event_status = '0'

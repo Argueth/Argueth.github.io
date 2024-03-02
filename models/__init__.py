@@ -8,4 +8,6 @@ from . import budget_abstract
 from . import budget_template
 from . import budget_event
 from . import line
-from . import employee_event_rel
+from . import light_employee_event_rel
+from . import sound_employee_event_rel
+from . import mount_employee_event_rel
