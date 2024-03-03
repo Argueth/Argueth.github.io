@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Gestión de eventos",
+    'name': 'Gestión de Eventos',
 
-    'summary': """
-        Un módulo para modularlos a todos.""",
+    'summary': 'Un módulo para modularlos a todos.',
 
-    'description': """
-        Módulo para gestionar eventos de tipo audiovisual. Permite crear eventos, editarlos, añadir personal
-        y material al evento, añadir notas y temporalización orientativa.
-    """,
+    'description': 'Módulo para gestionar eventos de tipo audiovisual. Permite crear eventos, editarlos, añadir personal y material al evento, añadir notas y temporalización orientativa.',
 
     'author': "Pablo Giner Barrios",
     'website': "https://github.com/Argueth/gestion_eventos",
