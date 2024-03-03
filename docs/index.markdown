@@ -17,6 +17,14 @@ layout: default
 > 
 El módulo Gestión de Eventos depende del módulo **hr** para acceder a los empleados y poder agregarlos a un evento. Para poder hacer esto es necesario instalar, previamente, el módulo **hr**.
 Además, para acceder a los Clientes y los Proveedores, es necesario instalar el módulo **Contacts** (En caso de tener el módulo Facturación esta dependencia ya estará satisfecha).
+>
+## Esquema de dependencias:
+- base
+- contacts
+    - res.partner
+- hr
+    - hr.employee
+>
 ## Orden del Proceso:
 - Accede al servidor web en el que tengas instalado OdooDock. Si lo tienes en un contenedor, el código será algo como esto:
 ```shell
@@ -30,7 +38,7 @@ cd mnt/extra-addons
 ```bash
 git clone https://github.com/Argueth/gestion_eventos.git
 ```
-A partir de este momento ya aparecerá el módulo en la **lista de aplicaciones** de tu sistema Odoo. Sin embargo, antes de instalarlo deberás tener en cuenta las **dependencias** que tiene este módulo. 
+A partir de este momento ya aparecerá el módulo en la **lista de aplicaciones** de tu sistema Odoo. Sin embargo, antes de instalarlo deberás tener en cuenta las **dependencias** que tiene este módulo (ver apartado **Esquema de dependencias**). 
 Para ello sigue las siguientes instrucciones: 
 - Instalar el módulo **hr** (Empleados)
     - Crear, por lo menos, los departamentos sigientes:
@@ -40,14 +48,14 @@ Para ello sigue las siguientes instrucciones:
         - Dirección
         - Gestión de Eventos
     - Añadir empleados a estos departamentos
-    - Crear usuarios de Odoo para los empleados que la empresa vea conveniente que tenga usuario usuario.
+    - Crear usuarios de Odoo para los empleados que la empresa vea conveniente que tenga usuario.
 - Instalar el módulo **contacts** (Facturación)
 - Instalar el módulo **gestion_eventos** (Gestión de Eventos)
-    - Dar permisos a los empleados dependiendo de lo que se quiera permitir a cada usuario (ver apartado Información de permisos).
+    - Dar permisos a los empleados dependiendo de lo que se quiera permitir a cada usuario (ver apartado **Información de permisos**).
 >
 ## Información de permisos:
 Gestión de Eventos creara en el sistema una categoría de permisos llamada **Gestion Eventos** a la que se podrá acceder desde la configuración de usuarios de Odoo.
-Creará también cuatro grupos, correspondientes a las opciones contenidas dentro de la categoría ya mencionada y cada uno tendrá unos permisos especificos. 
+Creará también cuatro grupos, correspondientes a las opciones contenidas dentro de la categoría ya mencionada y cada uno tendrá unos permisos específicos. 
 ### Listado de grupos y permisos:
 - **Comercial**:
     - Permisos totales en los eventos.
