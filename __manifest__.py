@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','hr'],
+    'depends': ['base','hr','contacts'],
 
     'application':True,
     # always loaded
@@ -39,6 +39,8 @@
         #reports
         'reports/materials_report.xml',
         'reports/events_report.xml',
+        'reports/budget_template_report.xml',
+        'reports/budget_event_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

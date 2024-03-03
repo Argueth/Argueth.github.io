@@ -12,7 +12,7 @@ class Line(models.Model):
     concept_id = fields.Many2one('gestion_eventos.material', string="Concepto", required=True)
     init_price = fields.Float(string='Precio Inicial', related='concept_id.pvp')
     quantity = fields.Integer(string='Quantity', default=0, required=True)
-    price = fields.Float(string='Precio', compute='_calculate_total_price')
+    price = fields.Float(string='Precio de la línea', compute='_compute_total_price')
 
     budget_template_id = fields.Many2one('gestion_eventos.budget_template', string='Presupuesto')
     budget_event_id = fields.Many2one('gestion_eventos.budget_event', string='Presupuesto')
@@ -22,13 +22,8 @@ class Line(models.Model):
     ]
     
     @api.depends('quantity', 'init_price')
-    def _calculate_total_price(self):
+    def _compute_total_price(self):
         for r in self:
             r.price = r.quantity * r.init_price
-"""
-    @api.depends('concept_id')
-    def _compute_init_price(self):
-        for record in self:
-            record.init_price = record.concept_id.pvp if record.concept_id else 0.0
-"""
+
 

@@ -307,6 +307,26 @@
       </field>
     </record>
 
+    <!-- Vista form para las lineas -->
+    <record model="ir.ui.view" id="gestion_eventos.lines_form">
+      <field name="name">lines_form</field>
+      <field name="model">gestion_eventos.line</field>
+      <field name="arch" type="xml">
+        <form>
+          <group columns='2'>
+            <group>
+              <field name="concept_id"/>
+            </group>
+            <group>
+              <field name="init_price"/>
+              <field name="quantity"/>
+              <field name="price"/>
+            </group>
+          </group>
+        </form>
+      </field>
+    </record>
+    
     <!-- actions opening views on models -->
 
     <!-- Action window for events -->
@@ -400,31 +420,29 @@
     <menuitem name="Gestión de eventos" id="gestion_eventos.menu_root"/>
 
     <!-- menu categories -->
-    <menuitem name="Listas" id="gestion_eventos.menu_1" parent="gestion_eventos.menu_root"/>
+    <menuitem name="Listas" id="gestion_eventos.menu_listas" parent="gestion_eventos.menu_root"/>
+
+    <menuitem name="Presupuestos" id="gestion_eventos.menu_presupuestos" parent="gestion_eventos.menu_root"/>
+
+    <menuitem name="Materiales" id="gestion_eventos.menu_materiales" parent="gestion_eventos.menu_root"/>
 <!--
     <menuitem name="Menu 2" id="gestion_eventos.menu_2" parent="gestion_eventos.menu_root"/>
 -->
     <!-- actions -->
-    <menuitem name="Events" id="gestion_eventos.event_list" parent="gestion_eventos.menu_1"
+    <menuitem name="Events" id="gestion_eventos.event_list" parent="gestion_eventos.menu_listas"
               action="gestion_eventos.action_window_event"/>
-
-    <menuitem name="Fases" id="gestion_eventos.fase_list" parent="gestion_eventos.menu_1"
-              action="gestion_eventos.action_window_fase"/>
     
-    <menuitem name="Materials" id="gestion_eventos.material_list" parent="gestion_eventos.menu_1"
+    <menuitem name="Materials" id="gestion_eventos.material_list" parent="gestion_eventos.menu_materiales"
               action="gestion_eventos.action_window_material"/>
               
-    <menuitem name="Types" id="gestion_eventos.type_list" parent="gestion_eventos.menu_1"
+    <menuitem name="Types" id="gestion_eventos.type_list" parent="gestion_eventos.menu_listas"
               action="gestion_eventos.action_window_type"/>
 
-    <menuitem name="Budget Templates" id="gestion_eventos.budget_template_list" parent="gestion_eventos.menu_1"
+    <menuitem name="Budget Templates" id="gestion_eventos.budget_template_list" parent="gestion_eventos.menu_presupuestos"
               action="gestion_eventos.action_window_budget_template"/>
 
-    <menuitem name="Budgets" id="gestion_eventos.budget_list" parent="gestion_eventos.menu_1"
+    <menuitem name="Budgets" id="gestion_eventos.budget_list" parent="gestion_eventos.menu_presupuestos"
               action="gestion_eventos.action_window_budget_event"/>
-
-    <menuitem name="Lines" id="gestion_eventos.line_list" parent="gestion_eventos.menu_1"
-              action="gestion_eventos.action_window_line"/>
 <!--
     <menuitem name="Server to list" id="gestion_eventos" parent="gestion_eventos.menu_2"
               action="gestion_eventos.action_server"/>

@@ -14,7 +14,7 @@ class Material(models.Model):
     
     provider_id = fields.Many2one('res.partner', string='Proveedor', domain=[('supplier_rank', '!=', 0)])
     provider_phone = fields.Char(string="Teléfono del proveedor", compute="_compute_provider_phone")
-    provider_address = fields.Char(stirng="Dirección del proveedor", compute="_compute_provider_address")
+    provider_address = fields.Char(string="Dirección del proveedor", compute="_compute_provider_address")
 
     cost_price = fields.Float(string='Precio de coste')
     pvp = fields.Float(string='PVP')
