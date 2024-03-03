@@ -71,8 +71,8 @@ Creará también cuatro grupos, correspondientes a las opciones contenidas dentr
     - Permiso para ver los materiales.
     - Permiso para ver los tipos de evento.
     - Ningún permiso para las plantillas de presupuesto.
-    - Ningún permiso para los presupuestos de evento.
-    - Ningún permiso para las líneas de presupuesto.
+    - Permiso para ver los presupuestos de evento.
+    - Permiso para ver las líneas de presupuesto.
     - Permiso para ver las fases de un evento pero no modificarlas, crearlas o eliminarlas.
     - Permiso para ver los empleados de iluminación, sonido y montaje asignados a los eventos.
 - **Event Manager**:
