@@ -35,7 +35,7 @@ Además, para acceder a los Clientes y los Proveedores, es necesario instalar el
 Gestión de Eventos creara en el sistema una categoría de permisos llamada **Gestion Eventos** a la que se podrá acceder desde la configuración de usuarios de Odoo.
 Creará también cuatro grupos, correspondientes a las opciones contenidas dentro de la categoría ya mencionada y cada uno tendrá unos permisos especificos. 
 ### Listado de grupos y permisos:
-- Comercial:
+- **Comercial**:
     - Permisos totales en los eventos.
     - Permisos totales para los materiales.
     - Permisos totales para los tipos de evento.
@@ -44,33 +44,33 @@ Creará también cuatro grupos, correspondientes a las opciones contenidas dentr
     - Permisos totales para las lineas de presupuesto.
     - Permiso para ver las fases de un evento pero no modificarlas, crearlas o eliminarlas.
     - Permiso para ver los empleados de iluminación, sonido y montaje asignados a los eventos.
-- Technic:
+- **Technic**:
     - Permiso para ver los eventos.
     - Permiso para ver los materiales.
     - Permiso para ver los tipos de evento.
     - Ningún permiso para las plantillas de presupuesto.
     - Ningún permiso para los presupuestos de evento.
     - Ningún permiso para las líneas de presupuesto.
-    - Permiso para ver las fases de un evento.
+    - Permiso para ver las fases de un evento pero no modificarlas, crearlas o eliminarlas.
     - Permiso para ver los empleados de iluminación, sonido y montaje asignados a los eventos.
-- Event Manager:
+- **Event Manager**:
     - Permisos para ver y modificar los eventos, pero no crearlos ni eliminarlos.
     - Permisos para ver y modificar los materiales.
     - Permisos para ver y modificar los tipos de evento.
     - Permiso para ver las plantillas de presupuesto.
     - Permisos totales para los presupuestos de evento.
     - Permisos totales para las lineas de presupuesto.
-    - Permisos totales para las fases de un evento pero no modificarlas, crearlas o eliminarlas.
+    - Permisos totales para las fases de un evento.
     - Permisos totales para los empleados de iluminación, sonido y montaje asignados a los eventos.
-- Director:
-    - Permisos para ver y modificar los eventos, pero no crearlos ni eliminarlos.
-    - Permisos para ver y modificar los materiales.
-    - Permisos para ver y modificar los tipos de evento.
-    - Permiso para ver las plantillas de presupuesto.
-    - Permisos totales para los presupuestos de evento.
-    - Permisos totales para las lineas de presupuesto.
-    - Permisos totales para las fases de un evento pero no modificarlas, crearlas o eliminarlas.
-    - Permisos totales para los empleados de iluminación, sonido y montaje asignados a los eventos.    
+- **Director**:
+    - Permisos para ver y modificar y eliminar los eventos pero no crearlos.
+    - Permisos para ver los materiales.
+    - Permisos para ver los tipos de evento.
+    - Permiso para ver y modificar las plantillas de presupuesto.
+    - Permiso para ver los presupuestos de evento.
+    - Permiso para ver las lineas de presupuesto.
+    - Permiso para ver las fases de un evento pero no modificarlas, crearlas o eliminarlas.
+    - Permisos para ver los empleados de iluminación, sonido y montaje asignados a los eventos.    
 
 
 # Descripción detallada de todas sus funciones:
