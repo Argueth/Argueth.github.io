@@ -19,17 +19,17 @@ El módulo Gestión de Eventos depende del módulo **hr** para acceder a los emp
 Además, para acceder a los Clientes y los Proveedores, es necesario instalar el módulo **Contacts** (En caso de tener el módulo Facturación esta dependencia ya estará satisfecha).
 ## Orden del Proceso:
 - Accede al servidor web en el que tengas instalado OdooDock. Si lo tienes en un contenedor, el código será algo como esto:
-'''shell
+```shell
 docker exec -it [nombre de tu servicio web] bash
-'''
+```
 - Accede a la carpeta extra-addons:
-'''bash
+```bash
 cd mnt/extra-addons
 '''
 - Clona el repositorio que contiene el módulo Gestión de Eventos:
-'''bash
+```bash
 git clone https://github.com/Argueth/gestion_eventos.git
-'''
+```
 A partir de este momento ya aparecerá el módulo en la **lista de aplicaciones** de tu sistema Odoo. Sin embargo, antes de instalarlo deberás tener en cuenta las **dependencias** que tiene este módulo. 
 
 Para ello sigue las siguientes instrucciones: 
