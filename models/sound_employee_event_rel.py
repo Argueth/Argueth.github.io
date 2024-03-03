@@ -15,7 +15,7 @@ class SoundEmployeeEventRel(models.Model):
     conflicting_event_info = fields.Char(string="Evento en conflicto", compute='_compute_conflicting_event_info')
 
     _sql_constraints = [
-        ('unique_combination','unique(employee,event)','Employee plus event combination must be unique.')
+        ('unique_combination','unique(employee_id,event_id)','Employee plus event combination must be unique.')
     ]
 
     @api.depends('employee_id', 'event_id')
