@@ -25,15 +25,13 @@ docker exec -it [nombre de tu servicio web] bash
 - Accede a la carpeta extra-addons:
 ```bash
 cd mnt/extra-addons
-'''
+```
 - Clona el repositorio que contiene el módulo Gestión de Eventos:
 ```bash
 git clone https://github.com/Argueth/gestion_eventos.git
 ```
 A partir de este momento ya aparecerá el módulo en la **lista de aplicaciones** de tu sistema Odoo. Sin embargo, antes de instalarlo deberás tener en cuenta las **dependencias** que tiene este módulo. 
-
 Para ello sigue las siguientes instrucciones: 
-
 - Instalar el módulo **hr** (Empleados)
     - Crear, por lo menos, los departamentos sigientes:
         - Iluminación
